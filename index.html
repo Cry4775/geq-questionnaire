@@ -12,66 +12,80 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
+
         .container {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
             color: #333;
         }
+
         h2 {
             color: #444;
             margin-top: 30px;
             border-bottom: 1px solid #ddd;
             padding-bottom: 10px;
         }
+
         .instructions {
             background-color: #f9f9f9;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
         }
+
         .module {
             margin-bottom: 30px;
             display: none;
         }
+
         .module.active {
             display: block;
         }
+
         .question {
             margin-bottom: 20px;
             padding: 10px;
             background-color: #f9f9f9;
             border-radius: 5px;
         }
+
         .question-text {
             font-weight: bold;
             margin-bottom: 10px;
         }
+
         .options {
             display: flex;
             justify-content: space-between;
         }
+
         .option {
             text-align: center;
             flex: 1;
         }
+
         .option label {
             display: block;
             padding: 5px;
             cursor: pointer;
         }
+
         .option input {
             margin-bottom: 5px;
         }
+
         .navigation {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
         }
+
         button {
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -81,13 +95,16 @@
             cursor: pointer;
             font-size: 16px;
         }
+
         button:hover {
             background-color: #45a049;
         }
+
         button:disabled {
             background-color: #cccccc;
             cursor: not-allowed;
         }
+
         .progress-bar {
             height: 20px;
             background-color: #ddd;
@@ -95,16 +112,19 @@
             margin-bottom: 20px;
             overflow: hidden;
         }
+
         .progress {
             height: 100%;
             background-color: #4CAF50;
             width: 0%;
             transition: width 0.3s;
         }
+
         .player-info {
             text-align: center;
             margin-bottom: 20px;
         }
+
         .player-id {
             font-size: 18px;
             font-weight: bold;
@@ -114,16 +134,19 @@
             background-color: #f9f9f9;
             display: inline-block;
         }
+
         .thank-you {
             display: none;
             text-align: center;
         }
+
         .module-tabs {
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
             margin-bottom: 20px;
         }
+
         .module-tab {
             padding: 8px 15px;
             background-color: #ddd;
@@ -131,24 +154,29 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .module-tab.active {
             background-color: #4CAF50;
             color: white;
         }
+
         #start-button {
             padding: 12px 24px;
             font-size: 18px;
         }
+
         .incomplete-questions {
             color: #ff0000;
             margin-top: 10px;
             display: none;
         }
+
         .loading {
             text-align: center;
             margin-top: 20px;
             display: none;
         }
+
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
             width: 36px;
@@ -158,459 +186,410 @@
             animation: spin 1s linear infinite;
             display: inline-block;
         }
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .navigation-links {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .navigation-links a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navigation-links a:hover {
+            text-decoration: underline;
+        }
+
+        .current-page {
+            font-weight: bold;
+            color: #333;
         }
     </style>
+    <!-- Includi il file JavaScript comune -->
+    <script src="geq-common.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Game Experience Questionnaire</h1>
-        <h2 style="text-align: center;">Valutazione finale</h2>
-        
-        <div id="start-section" class="player-info">
-            <p>Questo questionario raccoglie la tua esperienza complessiva con il gioco.</p>
-            <p>Il tuo identificativo univoco è:</p>
-            <div id="player-id" class="player-id">Generazione ID...</div>
-            <p>Ti consigliamo di annotare questo codice, sarà utile per il ricercatore.</p>
-            <div style="margin-top: 20px;">
-                <button id="start-button" onclick="startQuestionnaire()">Inizia Questionario</button>
-            </div>
-        </div>
+<div class="navigation-links">
+    <span class="current-page">Questionario End-Session</span> |
+    <a href="ingame.html">Questionario In-Game</a>
+</div>
+<div class="container">
+    <h1>Game Experience Questionnaire</h1>
+    <h2 style="text-align: center;">Valutazione finale</h2>
 
-        <div id="questionnaire" style="display: none;">
-            <div class="instructions">
-                <p>Per favore indica come ti sei sentito durante l'esperienza di gioco per ciascuna delle affermazioni sotto.</p>
-                <p>Le opzioni disponibili sono: <strong>Per niente (0), Leggermente (1), Moderatamente (2), Abbastanza (3), Estremamente (4)</strong></p>
-            </div>
-            
-            <div class="progress-bar">
-                <div id="progress" class="progress"></div>
-            </div>
-            
-            <div class="module-tabs" id="module-tabs"></div>
-            
-            <div id="modules-container"></div>
-            
-            <div class="incomplete-questions" id="incomplete-warning">
-                Ci sono domande senza risposta in questo modulo. Per completare il questionario, si consiglia di rispondere a tutte le domande.
-            </div>
-            
-            <div class="navigation">
-                <button id="prev-button" onclick="navigateModule(-1)" disabled>Indietro</button>
-                <button id="next-button" onclick="navigateModule(1)">Avanti</button>
-            </div>
-        </div>
-        
-        <div id="thank-you" class="thank-you">
-            <h2>Grazie per aver completato il questionario!</h2>
-            <p>I tuoi dati sono stati salvati con successo.</p>
-            <p>Il tuo ID partecipante è: <span id="final-player-id" class="player-id"></span></p>
-        </div>
-        
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
-            <p>Invio dei dati in corso...</p>
+    <div id="start-section" class="player-info">
+        <p>Questo questionario raccoglie la tua esperienza complessiva con il gioco.</p>
+        <p>Il tuo identificativo univoco è:</p>
+        <div id="player-id" class="player-id">Generazione ID...</div>
+        <p>Ti consigliamo di annotare questo codice, sarà utile per il ricercatore.</p>
+        <div style="margin-top: 20px;">
+            <button id="start-button" onclick="startQuestionnaire()">Inizia Questionario</button>
         </div>
     </div>
 
-    <script>
-        // Definizione del questionario
-        const questionnaire = {
-            title: "Game Experience Questionnaire",
-            modules: [
-                {
-                    name: "Core Module",
-                    description: "Core Experience",
-                    questions: [
-                        { id: 1, text: "Mi sentivo interessato" },
-                        { id: 2, text: "Mi sentivo abile" },
-                        { id: 3, text: "Ero interessato alla storia del gioco" },
-                        { id: 4, text: "Ho pensato che fosse divertente" },
-                        { id: 5, text: "Ero completamente preso dal gioco" },
-                        { id: 6, text: "Mi sentivo felice" },
-                        { id: 7, text: "Mi ha fatto sentire male" },
-                        { id: 8, text: "Ho pensato a altre cose" },
-                        { id: 9, text: "L'ho trovato stancante" },
-                        { id: 10, text: "Mi sono sentito abile" },
-                        { id: 11, text: "Ho pensato che fosse difficile" },
-                        { id: 12, text: "Era esteticamente piacevole" },
-                        { id: 13, text: "Ho dimenticato tutto quello che mi stava intorno" },
-                        { id: 14, text: "Mi sono sentito bene" },
-                        { id: 15, text: "Ero bravo al gioco" },
-                        { id: 16, text: "Mi sono sentito annoiato" },
-                        { id: 17, text: "Mi sono sentito di successo" },
-                        { id: 18, text: "Mi sono sentito immaginativo" },
-                        { id: 19, text: "Ho sentito di poter esplorare cose" },
-                        { id: 20, text: "Ho apprezzato il gioco" },
-                        { id: 21, text: "Ero veloce a raggiungere gli obiettivi del gioco" },
-                        { id: 22, text: "Mi sono sentito infastidito" },
-                        { id: 23, text: "Ho sentito la pressione" },
-                        { id: 24, text: "Mi sono sentito irritato" },
-                        { id: 25, text: "Ho perso traccia del tempo" },
-                        { id: 26, text: "Mi sono sentito sfidato" },
-                        { id: 27, text: "L'ho trovato impressionante" },
-                        { id: 28, text: "Ero profondamente concentrato nel gioco" },
-                        { id: 29, text: "Mi sono sentito frustrato" },
-                        { id: 30, text: "Mi sembrava un'esperienza ricca" },
-                        { id: 31, text: "Ho perso il contatto con il mondo esterno" },
-                        { id: 32, text: "Ho sentito il tempo che passava" },
-                        { id: 33, text: "Ho sentito di vivere un'esperienza" }
-                    ]
-                },
-                {
-                    name: "Post-game Module",
-                    description: "Esperienza dopo il gioco",
-                    questions: [
-                        { id: 46, text: "Mi sento gratificato" },
-                        { id: 47, text: "Mi sento male" },
-                        { id: 48, text: "Trovo difficile tornare alla realtà" },
-                        { id: 49, text: "Mi sento colpevole" },
-                        { id: 50, text: "Mi sembra di aver fatto una conquista" },
-                        { id: 51, text: "Mi sento stanco" },
-                        { id: 52, text: "Mi sento ispirato" },
-                        { id: 53, text: "Mi sento disorientato" },
-                        { id: 54, text: "Mi sento esausto" },
-                        { id: 55, text: "Sento che il gioco era intenso" },
-                        { id: 56, text: "Mi sento soddisfatto" },
-                        { id: 57, text: "Mi sento disorientato" },
-                        { id: 58, text: "Mi sento potente" },
-                        { id: 59, text: "Mi sento stanco" },
-                        { id: 60, text: "Ho dei rimpianti" },
-                        { id: 61, text: "Mi sento in colpa" },
-                        { id: 62, text: "Mi sento orgoglioso" }
-                    ]
-                }
-            ],
-            responseOptions: [
-                { value: 0, text: "Per niente" },
-                { value: 1, text: "Leggermente" },
-                { value: 2, text: "Moderatamente" },
-                { value: 3, text: "Abbastanza" },
-                { value: 4, text: "Estremamente" }
-            ]
+    <div id="questionnaire" style="display: none;">
+        <div class="instructions">
+            <p>Per favore indica come ti sei sentito durante l'esperienza di gioco per ciascuna delle affermazioni
+                sotto.</p>
+            <p>Le opzioni disponibili sono: <strong>Per niente (0), Leggermente (1), Moderatamente (2), Abbastanza (3),
+                Estremamente (4)</strong></p>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+
+        <div class="module-tabs" id="module-tabs"></div>
+
+        <div id="modules-container"></div>
+
+        <div class="incomplete-questions" id="incomplete-warning">
+            Ci sono domande senza risposta in questo modulo. Per completare il questionario, si consiglia di rispondere
+            a tutte le domande.
+        </div>
+
+        <div class="navigation">
+            <button id="prev-button" onclick="navigateModule(-1)" disabled>Indietro</button>
+            <button id="next-button" onclick="navigateModule(1)">Avanti</button>
+        </div>
+    </div>
+
+    <div id="thank-you" class="thank-you">
+        <h2>Grazie per aver completato il questionario!</h2>
+        <p>I tuoi dati sono stati salvati con successo.</p>
+        <p>Il tuo ID partecipante è: <span id="final-player-id" class="player-id"></span></p>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Invio dei dati in corso...</p>
+    </div>
+</div>
+
+<script>
+    // Definizione del questionario
+    const questionnaire = {
+        title: "Game Experience Questionnaire",
+        modules: [
+            {
+                name: "Core Module",
+                description: "Core Experience",
+                questions: [
+                    {id: 1, text: "Mi sentivo interessato"},
+                    {id: 2, text: "Mi sentivo abile"},
+                    {id: 3, text: "Ero interessato alla storia del gioco"},
+                    {id: 4, text: "Ho pensato che fosse divertente"},
+                    {id: 5, text: "Ero completamente preso dal gioco"},
+                    {id: 6, text: "Mi sentivo felice"},
+                    {id: 7, text: "Mi ha fatto sentire male"},
+                    {id: 8, text: "Ho pensato a altre cose"},
+                    {id: 9, text: "L'ho trovato stancante"},
+                    {id: 10, text: "Mi sono sentito abile"},
+                    {id: 11, text: "Ho pensato che fosse difficile"},
+                    {id: 12, text: "Era esteticamente piacevole"},
+                    {id: 13, text: "Ho dimenticato tutto quello che mi stava intorno"},
+                    {id: 14, text: "Mi sono sentito bene"},
+                    {id: 15, text: "Ero bravo al gioco"},
+                    {id: 16, text: "Mi sono sentito annoiato"},
+                    {id: 17, text: "Mi sono sentito di successo"},
+                    {id: 18, text: "Mi sono sentito immaginativo"},
+                    {id: 19, text: "Ho sentito di poter esplorare cose"},
+                    {id: 20, text: "Ho apprezzato il gioco"},
+                    {id: 21, text: "Ero veloce a raggiungere gli obiettivi del gioco"},
+                    {id: 22, text: "Mi sono sentito infastidito"},
+                    {id: 23, text: "Ho sentito la pressione"},
+                    {id: 24, text: "Mi sono sentito irritato"},
+                    {id: 25, text: "Ho perso traccia del tempo"},
+                    {id: 26, text: "Mi sono sentito sfidato"},
+                    {id: 27, text: "L'ho trovato impressionante"},
+                    {id: 28, text: "Ero profondamente concentrato nel gioco"},
+                    {id: 29, text: "Mi sono sentito frustrato"},
+                    {id: 30, text: "Mi sembrava un'esperienza ricca"},
+                    {id: 31, text: "Ho perso il contatto con il mondo esterno"},
+                    {id: 32, text: "Ho sentito il tempo che passava"},
+                    {id: 33, text: "Ho sentito di vivere un'esperienza"}
+                ]
+            },
+            {
+                name: "Post-game Module",
+                description: "Esperienza dopo il gioco",
+                questions: [
+                    {id: 46, text: "Mi sento gratificato"},
+                    {id: 47, text: "Mi sento male"},
+                    {id: 48, text: "Trovo difficile tornare alla realtà"},
+                    {id: 49, text: "Mi sento colpevole"},
+                    {id: 50, text: "Mi sembra di aver fatto una conquista"},
+                    {id: 51, text: "Mi sento stanco"},
+                    {id: 52, text: "Mi sento ispirato"},
+                    {id: 53, text: "Mi sento disorientato"},
+                    {id: 54, text: "Mi sento esausto"},
+                    {id: 55, text: "Sento che il gioco era intenso"},
+                    {id: 56, text: "Mi sento soddisfatto"},
+                    {id: 57, text: "Mi sento disorientato"},
+                    {id: 58, text: "Mi sento potente"},
+                    {id: 59, text: "Mi sento stanco"},
+                    {id: 60, text: "Ho dei rimpianti"},
+                    {id: 61, text: "Mi sento in colpa"},
+                    {id: 62, text: "Mi sento orgoglioso"}
+                ]
+            }
+        ],
+        responseOptions: [
+            {value: 0, text: "Per niente"},
+            {value: 1, text: "Leggermente"},
+            {value: 2, text: "Moderatamente"},
+            {value: 3, text: "Abbastanza"},
+            {value: 4, text: "Estremamente"}
+        ]
+    };
+
+    // Variabili globali
+    let currentModuleIndex = 0;
+    let responses = {};
+    let playerInfo = {};
+
+    // Inizializzazione del questionario
+    function initQuestionnaire() {
+        // Genera un ID univoco per il giocatore
+        const playerId = generateUniqueId();
+        document.getElementById('player-id').textContent = playerId;
+
+        // Inizializza risposte e info giocatore
+        responses = {};
+        playerInfo = {
+            id: playerId,
+            timestamp: new Date().toISOString(),
+            type: "end_session"
         };
 
-        // URL dello script di Google per inviare i dati al foglio di calcolo
-        // SOSTITUISCI QUESTO URL CON QUELLO GENERATO DAL TUO SCRIPT DI GOOGLE
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxA0qd-auoU0qMqU2nC1BXBnZUwT_hG7tjG_OHpUu0gMZvQCauQLw-jW8jKxY7QfZ2izQ/exec";
-        
-        // Variabili globali
-        let currentModuleIndex = 0;
-        let responses = {};
-        let playerInfo = {};
-        
-        // Genera un ID univoco
-        function generateUniqueId() {
-            // Genera un ID di 6 caratteri alfanumerici in maiuscolo
-            return Math.random().toString(36).substring(2, 8).toUpperCase();
-        }
+        questionnaire.modules.forEach(module => {
+            responses[module.name] = {};
+        });
+    }
 
-        // Inizializzazione del questionario
-        function initQuestionnaire() {
-            // Genera un ID univoco per il giocatore
-            const playerId = generateUniqueId();
-            document.getElementById('player-id').textContent = playerId;
-            
-            // Inizializza risposte e info giocatore
-            responses = {};
-            playerInfo = {
-                id: playerId,
-                timestamp: new Date().toISOString(),
-                type: "end_session"
-            };
-            
-            questionnaire.modules.forEach(module => {
-                responses[module.name] = {};
-            });
-        }
+    // Crea la UI del questionario
+    function createQuestionnaireUI() {
+        const modulesContainer = document.getElementById('modules-container');
+        const moduleTabs = document.getElementById('module-tabs');
 
-        // Crea la UI del questionario
-        function createQuestionnaireUI() {
-            const modulesContainer = document.getElementById('modules-container');
-            const moduleTabs = document.getElementById('module-tabs');
-            
-            // Pulisci i contenitori
-            modulesContainer.innerHTML = '';
-            moduleTabs.innerHTML = '';
-            
-            // Crea i tab per i moduli
-            questionnaire.modules.forEach((module, index) => {
-                const tab = document.createElement('button');
-                tab.innerText = module.name;
-                tab.className = 'module-tab';
-                if (index === 0) tab.classList.add('active');
-                tab.onclick = () => switchModule(index);
-                moduleTabs.appendChild(tab);
-            });
-            
-            // Crea i moduli e le domande
-            questionnaire.modules.forEach((module, moduleIndex) => {
-                // Crea il contenitore del modulo
-                const moduleDiv = document.createElement('div');
-                moduleDiv.id = `module-${moduleIndex}`;
-                moduleDiv.className = 'module';
-                if (moduleIndex === 0) moduleDiv.classList.add('active');
-                
-                // Crea intestazione modulo
-                const moduleTitle = document.createElement('h2');
-                moduleTitle.innerText = module.name;
-                moduleDiv.appendChild(moduleTitle);
-                
-                // Crea le domande
-                module.questions.forEach(question => {
-                    // Contenitore della domanda
-                    const questionDiv = document.createElement('div');
-                    questionDiv.className = 'question';
-                    
-                    // Testo della domanda
-                    const questionText = document.createElement('div');
-                    questionText.className = 'question-text';
-                    questionText.innerText = question.text;
-                    questionDiv.appendChild(questionText);
-                    
-                    // Opzioni di risposta
-                    const optionsDiv = document.createElement('div');
-                    optionsDiv.className = 'options';
-                    
-                    // Crea ciascuna opzione
-                    questionnaire.responseOptions.forEach(option => {
-                        const optionDiv = document.createElement('div');
-                        optionDiv.className = 'option';
-                        
-                        const radio = document.createElement('input');
-                        radio.type = 'radio';
-                        radio.name = `question-${question.id}`;
-                        radio.value = option.value;
-                        radio.id = `q${question.id}-o${option.value}`;
-                        radio.onchange = () => saveResponse(module.name, question.id, option.value);
-                        
-                        const label = document.createElement('label');
-                        label.htmlFor = `q${question.id}-o${option.value}`;
-                        label.innerText = option.text;
-                        
-                        optionDiv.appendChild(radio);
-                        optionDiv.appendChild(label);
-                        optionsDiv.appendChild(optionDiv);
-                    });
-                    
-                    questionDiv.appendChild(optionsDiv);
-                    moduleDiv.appendChild(questionDiv);
+        // Pulisci i contenitori
+        modulesContainer.innerHTML = '';
+        moduleTabs.innerHTML = '';
+
+        // Crea i tab per i moduli
+        questionnaire.modules.forEach((module, index) => {
+            const tab = document.createElement('button');
+            tab.innerText = module.name;
+            tab.className = 'module-tab';
+            if (index === 0) tab.classList.add('active');
+            tab.onclick = () => switchModule(index);
+            moduleTabs.appendChild(tab);
+        });
+
+        // Crea i moduli e le domande
+        questionnaire.modules.forEach((module, moduleIndex) => {
+            // Crea il contenitore del modulo
+            const moduleDiv = document.createElement('div');
+            moduleDiv.id = `module-${moduleIndex}`;
+            moduleDiv.className = 'module';
+            if (moduleIndex === 0) moduleDiv.classList.add('active');
+
+            // Crea intestazione modulo
+            const moduleTitle = document.createElement('h2');
+            moduleTitle.innerText = module.name;
+            moduleDiv.appendChild(moduleTitle);
+
+            // Crea le domande
+            module.questions.forEach(question => {
+                // Contenitore della domanda
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+
+                // Testo della domanda
+                const questionText = document.createElement('div');
+                questionText.className = 'question-text';
+                questionText.innerText = question.text;
+                questionDiv.appendChild(questionText);
+
+                // Opzioni di risposta
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                // Crea ciascuna opzione
+                questionnaire.responseOptions.forEach(option => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `question-${question.id}`;
+                    radio.value = option.value;
+                    radio.id = `q${question.id}-o${option.value}`;
+                    radio.onchange = () => saveResponse(module.name, question.id, option.value);
+
+                    const label = document.createElement('label');
+                    label.htmlFor = `q${question.id}-o${option.value}`;
+                    label.innerText = option.text;
+
+                    optionDiv.appendChild(radio);
+                    optionDiv.appendChild(label);
+                    optionsDiv.appendChild(optionDiv);
                 });
-                
-                modulesContainer.appendChild(moduleDiv);
+
+                questionDiv.appendChild(optionsDiv);
+                moduleDiv.appendChild(questionDiv);
             });
-            
-            updateProgressBar();
-        }
 
-        // Salva una risposta
-        function saveResponse(moduleName, questionId, value) {
-            responses[moduleName][questionId] = parseInt(value);
-            updateProgressBar();
-            checkModuleCompletion();
-        }
+            modulesContainer.appendChild(moduleDiv);
+        });
 
-        // Controlla se il modulo corrente è completo
-        function checkModuleCompletion() {
-            const currentModule = questionnaire.modules[currentModuleIndex];
-            const moduleResponses = responses[currentModule.name];
-            
-            // Verifica se tutte le domande del modulo corrente hanno ricevuto risposta
-            const allAnswered = currentModule.questions.every(q => 
-                moduleResponses.hasOwnProperty(q.id));
-            
-            const incompleteWarning = document.getElementById('incomplete-warning');
-            incompleteWarning.style.display = allAnswered ? 'none' : 'block';
-                
-            // Abilita/disabilita il pulsante avanti in base al completamento
-            const nextButton = document.getElementById('next-button');
-            if (currentModuleIndex === questionnaire.modules.length - 1) {
-                // Se è l'ultimo modulo, il pulsante diventa "Completa"
-                nextButton.innerText = 'Completa';
-                // Consentiamo di completare anche se non tutte le domande hanno risposta
-                nextButton.disabled = false;
-            } else {
-                nextButton.innerText = 'Avanti';
-                nextButton.disabled = false;
-            }
+        updateProgressBar();
+    }
+
+    // Salva una risposta
+    function saveResponse(moduleName, questionId, value) {
+        responses[moduleName][questionId] = parseInt(value);
+        updateProgressBar();
+        checkModuleCompletion();
+    }
+
+    // Controlla se il modulo corrente è completo
+    function checkModuleCompletion() {
+        const currentModule = questionnaire.modules[currentModuleIndex];
+        const allAnswered = isModuleComplete(currentModule.name, currentModule.questions, responses);
+
+        const incompleteWarning = document.getElementById('incomplete-warning');
+        incompleteWarning.style.display = allAnswered ? 'none' : 'block';
+
+        // Abilita/disabilita il pulsante avanti in base al completamento
+        const nextButton = document.getElementById('next-button');
+        if (currentModuleIndex === questionnaire.modules.length - 1) {
+            // Se è l'ultimo modulo, il pulsante diventa "Completa"
+            nextButton.innerText = 'Completa';
+            // Disabilita il pulsante se non tutte le domande hanno ricevuto risposta
+            nextButton.disabled = !allAnswered;
+        } else {
+            nextButton.innerText = 'Avanti';
+            nextButton.disabled = false;
         }
+    }
+
+    // Aggiorna la barra di progresso
+    function updateProgressBar() {
+        const status = checkAllQuestionsAnswered(responses, questionnaire.modules);
+
+        // Calcola la percentuale
+        const percentage = (status.answered / status.total) * 100;
 
         // Aggiorna la barra di progresso
-        function updateProgressBar() {
-            let totalQuestions = 0;
-            let answeredQuestions = 0;
-            
-            // Conta tutte le domande e le risposte
-            questionnaire.modules.forEach(module => {
-                totalQuestions += module.questions.length;
-                const moduleResponses = responses[module.name];
-                
-                module.questions.forEach(question => {
-                    if (moduleResponses.hasOwnProperty(question.id)) {
-                        answeredQuestions++;
-                    }
-                });
-            });
-            
-            // Calcola la percentuale
-            const percentage = (answeredQuestions / totalQuestions) * 100;
-            
-            // Aggiorna la barra di progresso
-            const progressBar = document.getElementById('progress');
-            progressBar.style.width = `${percentage}%`;
-        }
+        const progressBar = document.getElementById('progress');
+        progressBar.style.width = `${percentage}%`;
+    }
 
-        // Cambia modulo
-        function switchModule(index) {
-            // Nascondi tutti i moduli
-            document.querySelectorAll('.module').forEach(mod => {
-                mod.classList.remove('active');
-            });
-            
-            // Mostra il modulo selezionato
-            document.getElementById(`module-${index}`).classList.add('active');
-            
-            // Aggiorna i tab
-            document.querySelectorAll('.module-tab').forEach((tab, i) => {
-                if (i === index) {
-                    tab.classList.add('active');
-                } else {
-                    tab.classList.remove('active');
-                }
-            });
-            
-            // Aggiorna l'indice del modulo corrente
-            currentModuleIndex = index;
-            
-            // Aggiorna i pulsanti di navigazione
-            const prevButton = document.getElementById('prev-button');
-            prevButton.disabled = index === 0;
-            
-            // Controlla se il modulo è completo
-            checkModuleCompletion();
-        }
+    // Cambia modulo
+    function switchModule(index) {
+        // Nascondi tutti i moduli
+        document.querySelectorAll('.module').forEach(mod => {
+            mod.classList.remove('active');
+        });
 
-        // Navigazione tra moduli
-        function navigateModule(direction) {
-            const newIndex = currentModuleIndex + direction;
-            
-            // Verifica se stiamo nei limiti
-            if (newIndex >= 0 && newIndex < questionnaire.modules.length) {
-                switchModule(newIndex);
-            } else if (newIndex === questionnaire.modules.length) {
-                // Siamo alla fine, completa il questionario
-                completeQuestionnaire();
+        // Mostra il modulo selezionato
+        document.getElementById(`module-${index}`).classList.add('active');
+
+        // Aggiorna i tab
+        document.querySelectorAll('.module-tab').forEach((tab, i) => {
+            if (i === index) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
             }
+        });
+
+        // Aggiorna l'indice del modulo corrente
+        currentModuleIndex = index;
+
+        // Aggiorna i pulsanti di navigazione
+        const prevButton = document.getElementById('prev-button');
+        prevButton.disabled = index === 0;
+
+        // Controlla se il modulo è completo
+        checkModuleCompletion();
+    }
+
+    // Navigazione tra moduli
+    function navigateModule(direction) {
+        const newIndex = currentModuleIndex + direction;
+
+        // Verifica se stiamo nei limiti
+        if (newIndex >= 0 && newIndex < questionnaire.modules.length) {
+            switchModule(newIndex);
+        } else if (newIndex === questionnaire.modules.length) {
+            // Siamo alla fine, completa il questionario
+            completeQuestionnaire();
+        }
+    }
+
+    // Inizia il questionario
+    function startQuestionnaire() {
+        // Nascondi la sezione iniziale e mostra il questionario
+        document.getElementById('start-section').style.display = 'none';
+        document.getElementById('questionnaire').style.display = 'block';
+
+        // Crea la UI del questionario
+        createQuestionnaireUI();
+    }
+
+    // Completa il questionario
+    function completeQuestionnaire() {
+        // Verifica che tutte le domande abbiano ricevuto risposta
+        const status = checkAllQuestionsAnswered(responses, questionnaire.modules);
+
+        if (!status.isComplete) {
+            alert(`Per completare il questionario è necessario rispondere a tutte le domande. Mancano ancora ${status.total - status.answered} risposte.`);
+            // Torna all'ultimo modulo
+            switchModule(questionnaire.modules.length - 1);
+            return;
         }
 
-        // Inizia il questionario
-        function startQuestionnaire() {
-            // Nascondi la sezione iniziale e mostra il questionario
-            document.getElementById('start-section').style.display = 'none';
-            document.getElementById('questionnaire').style.display = 'block';
-            
-            // Crea la UI del questionario
-            createQuestionnaireUI();
-        }
+        // Mostra il loading spinner
+        document.getElementById('questionnaire').style.display = 'none';
+        document.getElementById('loading').style.display = 'block';
 
-        // Completa il questionario
-        function completeQuestionnaire() {
-            // Avvisa se ci sono domande senza risposta
-            let totalQuestions = 0;
-            let answeredQuestions = 0;
-            
-            questionnaire.modules.forEach(module => {
-                totalQuestions += module.questions.length;
-                const moduleResponses = responses[module.name];
-                
-                module.questions.forEach(question => {
-                    if (moduleResponses.hasOwnProperty(question.id)) {
-                        answeredQuestions++;
-                    }
-                });
-            });
-            
-            if (answeredQuestions < totalQuestions) {
-                if (!confirm(`Hai risposto a ${answeredQuestions} domande su ${totalQuestions}. Vuoi completare il questionario comunque?`)) {
-                    return;
-                }
-            }
-            
-            // Mostra il loading spinner
-            document.getElementById('questionnaire').style.display = 'none';
-            document.getElementById('loading').style.display = 'block';
-            
-            // Prepara i dati da inviare a Google Sheets
-            sendDataToGoogleSheets();
-        }
-
-        // Invia i dati a Google Sheets
-        function sendDataToGoogleSheets() {
-            // Prepara i dati in formato adatto per Google Sheets
-            let formData = new FormData();
-            
-            // Aggiungi le informazioni del giocatore
-            formData.append('id', playerInfo.id);
-            formData.append('timestamp', playerInfo.timestamp);
-            formData.append('type', playerInfo.type);
-            
-            // Prepara i dati delle risposte in formato JSON
-            const responsesData = [];
-            
-            questionnaire.modules.forEach(module => {
-                const moduleResponses = responses[module.name];
-                
-                module.questions.forEach(question => {
-                    const response = moduleResponses.hasOwnProperty(question.id) 
-                        ? moduleResponses[question.id] 
-                        : '';
-                    
-                    if (response !== '') {
-                        responsesData.push({
-                            module: module.name,
-                            questionId: question.id,
-                            questionText: question.text,
-                            response: response
-                        });
-                    }
-                });
-            });
-            
-            formData.append('responses', JSON.stringify(responsesData));
-            
-            // Invia i dati allo script di Google
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Errore nella risposta del server');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Successo:', data);
-                
+        sendDataToGoogleSheets(
+            playerInfo,
+            responses,
+            questionnaire.modules,
+            function onSuccess(data) {
                 // Nascondi il loading e mostra il messaggio di completamento
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('thank-you').style.display = 'block';
                 document.getElementById('final-player-id').textContent = playerInfo.id;
-            })
-            .catch(error => {
-                console.error('Errore:', error);
+            },
+            function onError(error) {
                 alert('Si è verificato un errore durante l\'invio dei dati. Per favore riprova.');
-                
                 // Mostra nuovamente il questionario
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('questionnaire').style.display = 'block';
-            });
-        }
+            }
+        );
+    }
 
-        // Inizializza il questionario quando la pagina è caricata
-        window.onload = initQuestionnaire;
-    </script>
+    // Inizializza il questionario quando la pagina è caricata
+    window.onload = initQuestionnaire;
+</script>
 </body>
 </html>

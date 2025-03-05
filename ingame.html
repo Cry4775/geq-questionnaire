@@ -139,310 +139,270 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .navigation-links {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .navigation-links a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navigation-links a:hover {
+            text-decoration: underline;
+        }
+
+        .current-page {
+            font-weight: bold;
+            color: #333;
+        }
     </style>
+    <!-- Includi il file JavaScript comune -->
+    <script src="geq-common.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Game Experience Questionnaire</h1>
-        <h2>In-Game Module</h2>
-        
-        <div id="start-section" class="player-info">
-            <p>Questo questionario raccoglie la tua esperienza <strong>durante</strong> la sessione di gioco.</p>
-            <p>Il tuo identificativo univoco è:</p>
-            <div id="player-id" class="player-id">Generazione ID...</div>
-            <p>Ti consigliamo di annotare questo codice, sarà utile per il ricercatore.</p>
-            <div style="margin-top: 20px;">
-                <button id="start-button" onclick="startQuestionnaire()">Inizia Questionario</button>
-            </div>
-        </div>
+<div class="navigation-links">
+    <a href="index.html">Questionario End-Session</a> |
+    <span class="current-page">Questionario In-Game</span>
+</div>
+<div class="container">
+    <h1>Game Experience Questionnaire</h1>
+    <h2>In-Game Module</h2>
 
-        <div id="questionnaire" style="display: none;">
-            <div class="instructions">
-                <p>Per favore indica come ti sei sentito <strong>durante</strong> l'esperienza di gioco per ciascuna delle affermazioni sotto.</p>
-                <p>Le opzioni disponibili sono: <strong>Per niente (0), Leggermente (1), Moderatamente (2), Abbastanza (3), Estremamente (4)</strong></p>
-            </div>
-            
-            <div class="progress-bar">
-                <div id="progress" class="progress"></div>
-            </div>
-            
-            <div id="questions-container"></div>
-            
-            <div class="incomplete-questions" id="incomplete-warning">
-                Ci sono domande senza risposta. Per completare il questionario, si consiglia di rispondere a tutte le domande.
-            </div>
-            
-            <div class="submit-container">
-                <button id="submit-button" onclick="completeQuestionnaire()">Completa Questionario</button>
-            </div>
-        </div>
-        
-        <div id="thank-you" class="thank-you">
-            <h2>Grazie per aver completato il questionario!</h2>
-            <p>I tuoi dati sono stati salvati con successo.</p>
-            <p>Il tuo ID partecipante è: <span id="final-player-id" class="player-id"></span></p>
-        </div>
-        
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
-            <p>Invio dei dati in corso...</p>
+    <div id="start-section" class="player-info">
+        <p>Questo questionario raccoglie la tua esperienza <strong>durante</strong> la sessione di gioco.</p>
+        <p>Il tuo identificativo univoco è:</p>
+        <div id="player-id" class="player-id">Generazione ID...</div>
+        <p>Ti consigliamo di annotare questo codice, sarà utile per il ricercatore.</p>
+        <div style="margin-top: 20px;">
+            <button id="start-button" onclick="startQuestionnaire()">Inizia Questionario</button>
         </div>
     </div>
 
-    <script>
-        // Definizione del questionario
-        const questionnaire = {
-            title: "Game Experience Questionnaire",
-            module: {
-                name: "In-game Module",
-                description: "Presenza/Immersione",
-                questions: [
-                    { id: 34, text: "Ero interessato all'ambiente di gioco" },
-                    { id: 35, text: "Mi sono sentito assorbito" },
-                    { id: 36, text: "Mi sembrava che il tempo passasse in fretta" },
-                    { id: 37, text: "Mi sono sentito influenzato dal mondo di gioco" },
-                    { id: 38, text: "Mi sentivo come se fossi stato in un viaggio" },
-                    { id: 39, text: "Era un'esperienza ricca" },
-                    { id: 40, text: "Ero consapevole del mondo reale che mi circondava" },
-                    { id: 41, text: "Ho avuto un senso di ritorno alla realtà" },
-                    { id: 42, text: "Mi sono sentito staccato dal mondo esterno" },
-                    { id: 43, text: "Mi sentivo emotivamente coinvolto" },
-                    { id: 44, text: "Il contenuto del gioco mi sembrava credibile" },
-                    { id: 45, text: "Ero coinvolto con gli eventi di gioco" }
-                ]
-            },
-            responseOptions: [
-                { value: 0, text: "Per niente" },
-                { value: 1, text: "Leggermente" },
-                { value: 2, text: "Moderatamente" },
-                { value: 3, text: "Abbastanza" },
-                { value: 4, text: "Estremamente" }
+    <div id="questionnaire" style="display: none;">
+        <div class="instructions">
+            <p>Per favore indica come ti sei sentito <strong>durante</strong> l'esperienza di gioco per ciascuna delle affermazioni sotto.</p>
+            <p>Le opzioni disponibili sono: <strong>Per niente (0), Leggermente (1), Moderatamente (2), Abbastanza (3), Estremamente (4)</strong></p>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+
+        <div id="questions-container"></div>
+
+        <div class="incomplete-questions" id="incomplete-warning">
+            Ci sono domande senza risposta. Per completare il questionario, si consiglia di rispondere a tutte le domande.
+        </div>
+
+        <div class="submit-container">
+            <button id="submit-button" onclick="completeQuestionnaire()">Completa Questionario</button>
+        </div>
+    </div>
+
+    <div id="thank-you" class="thank-you">
+        <h2>Grazie per aver completato il questionario!</h2>
+        <p>I tuoi dati sono stati salvati con successo.</p>
+        <p>Il tuo ID partecipante è: <span id="final-player-id" class="player-id"></span></p>
+
+        <div class="navigation-links" style="margin-top: 20px;">
+            <a href="index.html">Vai al Questionario End-Session</a>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Invio dei dati in corso...</p>
+    </div>
+</div>
+
+<script>
+    // Definizione del questionario
+    const questionnaire = {
+        title: "Game Experience Questionnaire",
+        module: {
+            name: "In-game Module",
+            description: "Presenza/Immersione",
+            questions: [
+                { id: 34, text: "Ero interessato all'ambiente di gioco" },
+                { id: 35, text: "Mi sono sentito assorbito" },
+                { id: 36, text: "Mi sembrava che il tempo passasse in fretta" },
+                { id: 37, text: "Mi sono sentito influenzato dal mondo di gioco" },
+                { id: 38, text: "Mi sentivo come se fossi stato in un viaggio" },
+                { id: 39, text: "Era un'esperienza ricca" },
+                { id: 40, text: "Ero consapevole del mondo reale che mi circondava" },
+                { id: 41, text: "Ho avuto un senso di ritorno alla realtà" },
+                { id: 42, text: "Mi sono sentito staccato dal mondo esterno" },
+                { id: 43, text: "Mi sentivo emotivamente coinvolto" },
+                { id: 44, text: "Il contenuto del gioco mi sembrava credibile" },
+                { id: 45, text: "Ero coinvolto con gli eventi di gioco" }
             ]
+        },
+        responseOptions: [
+            { value: 0, text: "Per niente" },
+            { value: 1, text: "Leggermente" },
+            { value: 2, text: "Moderatamente" },
+            { value: 3, text: "Abbastanza" },
+            { value: 4, text: "Estremamente" }
+        ]
+    };
+
+    // Variabili globali
+    let responses = {};
+    let playerInfo = {};
+
+    // Inizializzazione del questionario
+    function initQuestionnaire() {
+        // Genera un ID univoco per il giocatore
+        const playerId = generateUniqueId();
+        document.getElementById('player-id').textContent = playerId;
+
+        // Inizializza risposte e info giocatore
+        responses = {};
+        playerInfo = {
+            id: playerId,
+            timestamp: new Date().toISOString(),
+            type: "in_game"
         };
 
-        // URL dello script di Google per inviare i dati al foglio di calcolo
-        // SOSTITUISCI QUESTO URL CON QUELLO GENERATO DAL TUO SCRIPT DI GOOGLE
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxA0qd-auoU0qMqU2nC1BXBnZUwT_hG7tjG_OHpUu0gMZvQCauQLw-jW8jKxY7QfZ2izQ/exec";
-        
-        // Variabili globali
-        let responses = {};
-        let playerInfo = {};
-        
-        // Genera un ID univoco
-        function generateUniqueId() {
-            // Genera un ID di 6 caratteri alfanumerici in maiuscolo
-            return Math.random().toString(36).substring(2, 8).toUpperCase();
-        }
+        // Inizializza le risposte per il modulo
+        responses[questionnaire.module.name] = {};
+    }
 
-        // Inizializzazione del questionario
-        function initQuestionnaire() {
-            // Genera un ID univoco per il giocatore
-            const playerId = generateUniqueId();
-            document.getElementById('player-id').textContent = playerId;
-            
-            // Inizializza risposte e info giocatore
-            responses = {};
-            playerInfo = {
-                id: playerId,
-                timestamp: new Date().toISOString(),
-                type: "in_game"
-            };
-            
-            // Inizializza le risposte per il modulo
-            responses[questionnaire.module.name] = {};
-        }
+    // Crea la UI del questionario
+    function createQuestionnaireUI() {
+        const questionsContainer = document.getElementById('questions-container');
 
-        // Crea la UI del questionario
-        function createQuestionnaireUI() {
-            const questionsContainer = document.getElementById('questions-container');
-            
-            // Pulisci il contenitore
-            questionsContainer.innerHTML = '';
-            
-            // Crea le domande
-            questionnaire.module.questions.forEach(question => {
-                // Contenitore della domanda
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'question';
-                
-                // Testo della domanda
-                const questionText = document.createElement('div');
-                questionText.className = 'question-text';
-                questionText.innerText = question.text;
-                questionDiv.appendChild(questionText);
-                
-                // Opzioni di risposta
-                const optionsDiv = document.createElement('div');
-                optionsDiv.className = 'options';
-                
-                // Crea ciascuna opzione
-                questionnaire.responseOptions.forEach(option => {
-                    const optionDiv = document.createElement('div');
-                    optionDiv.className = 'option';
-                    
-                    const radio = document.createElement('input');
-                    radio.type = 'radio';
-                    radio.name = `question-${question.id}`;
-                    radio.value = option.value;
-                    radio.id = `q${question.id}-o${option.value}`;
-                    radio.onchange = () => saveResponse(questionnaire.module.name, question.id, option.value);
-                    
-                    const label = document.createElement('label');
-                    label.htmlFor = `q${question.id}-o${option.value}`;
-                    label.innerText = option.text;
-                    
-                    optionDiv.appendChild(radio);
-                    optionDiv.appendChild(label);
-                    optionsDiv.appendChild(optionDiv);
-                });
-                
-                questionDiv.appendChild(optionsDiv);
-                questionsContainer.appendChild(questionDiv);
+        // Pulisci il contenitore
+        questionsContainer.innerHTML = '';
+
+        // Crea le domande
+        questionnaire.module.questions.forEach(question => {
+            // Contenitore della domanda
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+
+            // Testo della domanda
+            const questionText = document.createElement('div');
+            questionText.className = 'question-text';
+            questionText.innerText = question.text;
+            questionDiv.appendChild(questionText);
+
+            // Opzioni di risposta
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+
+            // Crea ciascuna opzione
+            questionnaire.responseOptions.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `question-${question.id}`;
+                radio.value = option.value;
+                radio.id = `q${question.id}-o${option.value}`;
+                radio.onchange = () => saveResponse(questionnaire.module.name, question.id, option.value);
+
+                const label = document.createElement('label');
+                label.htmlFor = `q${question.id}-o${option.value}`;
+                label.innerText = option.text;
+
+                optionDiv.appendChild(radio);
+                optionDiv.appendChild(label);
+                optionsDiv.appendChild(optionDiv);
             });
-            
-            updateProgressBar();
-        }
 
-        // Salva una risposta
-        function saveResponse(moduleName, questionId, value) {
-            responses[moduleName][questionId] = parseInt(value);
-            updateProgressBar();
-            checkCompletion();
-        }
+            questionDiv.appendChild(optionsDiv);
+            questionsContainer.appendChild(questionDiv);
+        });
 
-        // Controlla se tutte le domande hanno risposta
-        function checkCompletion() {
-            const moduleResponses = responses[questionnaire.module.name];
-            
-            // Verifica se tutte le domande hanno ricevuto risposta
-            const allAnswered = questionnaire.module.questions.every(q => 
-                moduleResponses.hasOwnProperty(q.id));
-            
-            const incompleteWarning = document.getElementById('incomplete-warning');
-            incompleteWarning.style.display = allAnswered ? 'none' : 'block';
-        }
+        updateProgressBar();
+    }
+
+    // Salva una risposta
+    function saveResponse(moduleName, questionId, value) {
+        responses[moduleName][questionId] = parseInt(value);
+        updateProgressBar();
+        checkCompletion();
+    }
+
+    // Controlla se tutte le domande hanno risposta
+    function checkCompletion() {
+        const allAnswered = isModuleComplete(questionnaire.module.name, questionnaire.module.questions, responses);
+
+        const incompleteWarning = document.getElementById('incomplete-warning');
+        incompleteWarning.style.display = allAnswered ? 'none' : 'block';
+
+        // Abilita/disabilita il pulsante di completamento
+        const submitButton = document.getElementById('submit-button');
+        submitButton.disabled = !allAnswered;
+    }
+
+    // Aggiorna la barra di progresso
+    function updateProgressBar() {
+        const status = checkAllQuestionsAnswered(responses, questionnaire.module);
+
+        // Calcola la percentuale
+        const percentage = (status.answered / status.total) * 100;
 
         // Aggiorna la barra di progresso
-        function updateProgressBar() {
-            let totalQuestions = questionnaire.module.questions.length;
-            let answeredQuestions = 0;
-            
-            // Conta le risposte
-            const moduleResponses = responses[questionnaire.module.name];
-            questionnaire.module.questions.forEach(question => {
-                if (moduleResponses.hasOwnProperty(question.id)) {
-                    answeredQuestions++;
-                }
-            });
-            
-            // Calcola la percentuale
-            const percentage = (answeredQuestions / totalQuestions) * 100;
-            
-            // Aggiorna la barra di progresso
-            const progressBar = document.getElementById('progress');
-            progressBar.style.width = `${percentage}%`;
+        const progressBar = document.getElementById('progress');
+        progressBar.style.width = `${percentage}%`;
+    }
+
+    // Inizia il questionario
+    function startQuestionnaire() {
+        // Nascondi la sezione iniziale e mostra il questionario
+        document.getElementById('start-section').style.display = 'none';
+        document.getElementById('questionnaire').style.display = 'block';
+
+        // Crea la UI del questionario
+        createQuestionnaireUI();
+    }
+
+    // Completa il questionario
+    function completeQuestionnaire() {
+        // Verifica che tutte le domande abbiano ricevuto risposta
+        const status = checkAllQuestionsAnswered(responses, questionnaire.module);
+
+        if (!status.isComplete) {
+            alert(`Per completare il questionario è necessario rispondere a tutte le domande. Mancano ancora ${status.total - status.answered} risposte.`);
+            return;
         }
 
-        // Inizia il questionario
-        function startQuestionnaire() {
-            // Nascondi la sezione iniziale e mostra il questionario
-            document.getElementById('start-section').style.display = 'none';
-            document.getElementById('questionnaire').style.display = 'block';
-            
-            // Crea la UI del questionario
-            createQuestionnaireUI();
-        }
+        // Mostra il loading spinner
+        document.getElementById('questionnaire').style.display = 'none';
+        document.getElementById('loading').style.display = 'block';
 
-        // Completa il questionario
-        function completeQuestionnaire() {
-            // Avvisa se ci sono domande senza risposta
-            let totalQuestions = questionnaire.module.questions.length;
-            let answeredQuestions = 0;
-            
-            // Conta le risposte
-            const moduleResponses = responses[questionnaire.module.name];
-            questionnaire.module.questions.forEach(question => {
-                if (moduleResponses.hasOwnProperty(question.id)) {
-                    answeredQuestions++;
-                }
-            });
-            
-            if (answeredQuestions < totalQuestions) {
-                if (!confirm(`Hai risposto a ${answeredQuestions} domande su ${totalQuestions}. Vuoi completare il questionario comunque?`)) {
-                    return;
-                }
-            }
-            
-            // Mostra il loading spinner
-            document.getElementById('questionnaire').style.display = 'none';
-            document.getElementById('loading').style.display = 'block';
-            
-            // Invia i dati a Google Sheets
-            sendDataToGoogleSheets();
-        }
-
-        // Invia i dati a Google Sheets
-        function sendDataToGoogleSheets() {
-            // Prepara i dati in formato adatto per Google Sheets
-            let formData = new FormData();
-            
-            // Aggiungi le informazioni del giocatore
-            formData.append('id', playerInfo.id);
-            formData.append('timestamp', playerInfo.timestamp);
-            formData.append('type', playerInfo.type);
-            
-            // Prepara i dati delle risposte in formato JSON
-            const responsesData = [];
-            const moduleResponses = responses[questionnaire.module.name];
-            
-            questionnaire.module.questions.forEach(question => {
-                const response = moduleResponses.hasOwnProperty(question.id) 
-                    ? moduleResponses[question.id] 
-                    : '';
-                
-                if (response !== '') {
-                    responsesData.push({
-                        module: questionnaire.module.name,
-                        questionId: question.id,
-                        questionText: question.text,
-                        response: response
-                    });
-                }
-            });
-            
-            formData.append('responses', JSON.stringify(responsesData));
-            
-            // Invia i dati allo script di Google
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Errore nella risposta del server');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Successo:', data);
-                
+        // Invia i dati a Google Sheets usando la funzione comune
+        sendDataToGoogleSheets(
+            playerInfo,
+            responses,
+            questionnaire.module,
+            function onSuccess(data) {
                 // Nascondi il loading e mostra il messaggio di completamento
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('thank-you').style.display = 'block';
                 document.getElementById('final-player-id').textContent = playerInfo.id;
-            })
-            .catch(error => {
-                console.error('Errore:', error);
+            },
+            function onError(error) {
                 alert('Si è verificato un errore durante l\'invio dei dati. Per favore riprova.');
-                
                 // Mostra nuovamente il questionario
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('questionnaire').style.display = 'block';
-            });
-        }
+            }
+        );
+    }
 
-        // Inizializza il questionario quando la pagina è caricata
-        window.onload = initQuestionnaire;
-    </script>
+    // Inizializza il questionario quando la pagina è caricata
+    window.onload = initQuestionnaire;
+</script>
 </body>
 </html>
