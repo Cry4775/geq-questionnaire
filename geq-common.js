@@ -1,4 +1,4 @@
-
+// URL dello script di Google per inviare i dati al foglio di calcolo
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxA0qd-auoU0qMqU2nC1BXBnZUwT_hG7tjG_OHpUu0gMZvQCauQLw-jW8jKxY7QfZ2izQ/exec";
 
 /**
@@ -14,31 +14,32 @@ function generateUniqueId() {
  * Invia i dati a Google Sheets
  * @param {Object} playerInfo - Informazioni del giocatore
  * @param {Object} responses - Risposte raccolte
+ * @param {Array|Object} modules - Moduli con domande
  * @param {Function} onSuccess - Funzione da chiamare in caso di successo
  * @param {Function} onError - Funzione da chiamare in caso di errore
  */
 function sendDataToGoogleSheets(playerInfo, responses, modules, onSuccess, onError) {
     // Prepara i dati in formato adatto per Google Sheets
     let formData = new FormData();
-    
+
     // Aggiungi le informazioni del giocatore
     formData.append('id', playerInfo.id);
     formData.append('timestamp', playerInfo.timestamp);
     formData.append('type', playerInfo.type);
-    
+
     // Prepara i dati delle risposte in formato JSON
     const responsesData = [];
-    
+
     // Se abbiamo un array di moduli (caso index.html)
     if (Array.isArray(modules)) {
         modules.forEach(module => {
             const moduleResponses = responses[module.name];
-            
+
             module.questions.forEach(question => {
-                const response = moduleResponses.hasOwnProperty(question.id) 
-                    ? moduleResponses[question.id] 
+                const response = moduleResponses.hasOwnProperty(question.id)
+                    ? moduleResponses[question.id]
                     : '';
-                
+
                 if (response !== '') {
                     responsesData.push({
                         module: module.name,
@@ -49,16 +50,16 @@ function sendDataToGoogleSheets(playerInfo, responses, modules, onSuccess, onErr
                 }
             });
         });
-    } 
+    }
     // Se abbiamo un singolo modulo (caso ingame.html)
     else if (modules && modules.name) {
         const moduleResponses = responses[modules.name];
-        
+
         modules.questions.forEach(question => {
-            const response = moduleResponses.hasOwnProperty(question.id) 
-                ? moduleResponses[question.id] 
+            const response = moduleResponses.hasOwnProperty(question.id)
+                ? moduleResponses[question.id]
                 : '';
-            
+
             if (response !== '') {
                 responsesData.push({
                     module: modules.name,
@@ -69,28 +70,28 @@ function sendDataToGoogleSheets(playerInfo, responses, modules, onSuccess, onErr
             }
         });
     }
-    
+
     formData.append('responses', JSON.stringify(responsesData));
-    
+
     // Invia i dati allo script di Google
     fetch(SCRIPT_URL, {
         method: 'POST',
         body: formData
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Errore nella risposta del server');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Successo:', data);
-        onSuccess(data);
-    })
-    .catch(error => {
-        console.error('Errore:', error);
-        onError(error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore nella risposta del server');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Successo:', data);
+            onSuccess(data);
+        })
+        .catch(error => {
+            console.error('Errore:', error);
+            onError(error);
+        });
 }
 
 /**
@@ -102,32 +103,32 @@ function sendDataToGoogleSheets(playerInfo, responses, modules, onSuccess, onErr
 function checkAllQuestionsAnswered(responses, modules) {
     let totalQuestions = 0;
     let answeredQuestions = 0;
-    
+
     // Se abbiamo un array di moduli (caso index.html)
     if (Array.isArray(modules)) {
         modules.forEach(module => {
             totalQuestions += module.questions.length;
             const moduleResponses = responses[module.name];
-            
+
             module.questions.forEach(question => {
                 if (moduleResponses.hasOwnProperty(question.id)) {
                     answeredQuestions++;
                 }
             });
         });
-    } 
+    }
     // Se abbiamo un singolo modulo (caso ingame.html)
     else if (modules && modules.name) {
         totalQuestions = modules.questions.length;
         const moduleResponses = responses[modules.name];
-        
+
         modules.questions.forEach(question => {
             if (moduleResponses.hasOwnProperty(question.id)) {
                 answeredQuestions++;
             }
         });
     }
-    
+
     return {
         total: totalQuestions,
         answered: answeredQuestions,

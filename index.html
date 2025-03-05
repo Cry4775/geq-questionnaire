@@ -4,245 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Experience Questionnaire - Core e Post-Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        h2 {
-            color: #444;
-            margin-top: 30px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-
-        .instructions {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .module {
-            margin-bottom: 30px;
-            display: none;
-        }
-
-        .module.active {
-            display: block;
-        }
-
-        .question {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-
-        .question-text {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .options {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .option {
-            text-align: center;
-            flex: 1;
-        }
-
-        .option label {
-            display: block;
-            padding: 5px;
-            cursor: pointer;
-        }
-
-        .option input {
-            margin-bottom: 5px;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-
-        .progress-bar {
-            height: 20px;
-            background-color: #ddd;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: #4CAF50;
-            width: 0%;
-            transition: width 0.3s;
-        }
-
-        .player-info {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .player-id {
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px;
-            border: 1px dashed #4CAF50;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            display: inline-block;
-        }
-
-        .thank-you {
-            display: none;
-            text-align: center;
-        }
-
-        .module-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 20px;
-        }
-
-        .module-tab {
-            padding: 8px 15px;
-            background-color: #ddd;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .module-tab.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        #start-button {
-            padding: 12px 24px;
-            font-size: 18px;
-        }
-
-        .incomplete-questions {
-            color: #ff0000;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .loading {
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #4CAF50;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .navigation-links {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-
-        .navigation-links a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .navigation-links a:hover {
-            text-decoration: underline;
-        }
-
-        .current-page {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .download-buttons {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .download-buttons button {
-            margin: 0 5px;
-            padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .download-buttons button:hover {
-            background-color: #0b7dda;
-        }
-    </style>
-    <!-- Includi il file JavaScript comune -->
+    <link rel="stylesheet" href="geq-styles.css">
     <script src="geq-common.js"></script>
 </head>
 <body>
@@ -258,7 +20,6 @@
         <p>Questo questionario raccoglie la tua esperienza complessiva con il gioco.</p>
         <p>Il tuo identificativo univoco è:</p>
         <div id="player-id" class="player-id">Generazione ID...</div>
-        <p>Ti consigliamo di annotare questo codice, sarà utile per il ricercatore.</p>
         <div style="margin-top: 20px;">
             <button id="start-button" onclick="startQuestionnaire()">Inizia Questionario</button>
         </div>
@@ -281,8 +42,7 @@
         <div id="modules-container"></div>
 
         <div class="incomplete-questions" id="incomplete-warning">
-            Ci sono domande senza risposta in questo modulo. Per completare il questionario, si consiglia di rispondere
-            a tutte le domande.
+            Ci sono domande senza risposta. Per completare il questionario, bisogna rispondere a tutte le domande.
         </div>
 
         <div class="navigation">
@@ -301,16 +61,35 @@
             <button onclick="downloadQuestionnaireDataAsJson()">Scarica come JSON</button>
             <button onclick="downloadQuestionnaireDataAsCsv()">Scarica come CSV</button>
         </div>
+
+        <div class="navigation-links" style="margin-top: 20px;">
+            <a href="index.html">Nuovo Questionario End-Session</a> |
+            <a href="ingame.html">Vai al Questionario In-Game</a>
+        </div>
     </div>
 
     <div id="loading" class="loading">
         <div class="spinner"></div>
         <p>Invio dei dati in corso...</p>
     </div>
+
+    <div id="error-section" class="error-section" style="display: none;">
+        <h2>Errore di connessione</h2>
+        <p>Si è verificato un errore durante l'invio dei dati al server.</p>
+        <p>Puoi scaricare una copia locale dei tuoi dati:</p>
+
+        <div class="download-buttons">
+            <button onclick="downloadQuestionnaireDataAsJson()">Scarica come JSON</button>
+            <button onclick="downloadQuestionnaireDataAsCsv()">Scarica come CSV</button>
+        </div>
+
+        <p>Il tuo ID partecipante è: <span id="error-player-id" class="player-id"></span></p>
+
+        <button onclick="retrySubmission()" class="retry-button">Riprova invio</button>
+    </div>
 </div>
 
 <script>
-    // Definizione del questionario
     const questionnaire = {
         title: "Game Experience Questionnaire",
         modules: [
@@ -318,71 +97,71 @@
                 name: "Core Module",
                 description: "Core Experience",
                 questions: [
-                    {id: 1, text: "Mi sentivo interessato"},
-                    {id: 2, text: "Mi sentivo abile"},
-                    {id: 3, text: "Ero interessato alla storia del gioco"},
-                    {id: 4, text: "Ho pensato che fosse divertente"},
-                    {id: 5, text: "Ero completamente preso dal gioco"},
-                    {id: 6, text: "Mi sentivo felice"},
-                    {id: 7, text: "Mi ha fatto sentire male"},
-                    {id: 8, text: "Ho pensato a altre cose"},
-                    {id: 9, text: "L'ho trovato stancante"},
-                    {id: 10, text: "Mi sono sentito abile"},
-                    {id: 11, text: "Ho pensato che fosse difficile"},
-                    {id: 12, text: "Era esteticamente piacevole"},
-                    {id: 13, text: "Ho dimenticato tutto quello che mi stava intorno"},
-                    {id: 14, text: "Mi sono sentito bene"},
-                    {id: 15, text: "Ero bravo al gioco"},
-                    {id: 16, text: "Mi sono sentito annoiato"},
-                    {id: 17, text: "Mi sono sentito di successo"},
-                    {id: 18, text: "Mi sono sentito immaginativo"},
-                    {id: 19, text: "Ho sentito di poter esplorare cose"},
-                    {id: 20, text: "Ho apprezzato il gioco"},
-                    {id: 21, text: "Ero veloce a raggiungere gli obiettivi del gioco"},
-                    {id: 22, text: "Mi sono sentito infastidito"},
-                    {id: 23, text: "Ho sentito la pressione"},
-                    {id: 24, text: "Mi sono sentito irritato"},
-                    {id: 25, text: "Ho perso traccia del tempo"},
-                    {id: 26, text: "Mi sono sentito sfidato"},
-                    {id: 27, text: "L'ho trovato impressionante"},
-                    {id: 28, text: "Ero profondamente concentrato nel gioco"},
-                    {id: 29, text: "Mi sono sentito frustrato"},
-                    {id: 30, text: "Mi sembrava un'esperienza ricca"},
-                    {id: 31, text: "Ho perso il contatto con il mondo esterno"},
-                    {id: 32, text: "Ho sentito il tempo che passava"},
-                    {id: 33, text: "Ho sentito di vivere un'esperienza"}
+                    { id: 1, text: "Mi sentivo interessato" },
+                    { id: 2, text: "Mi sentivo abile" },
+                    { id: 3, text: "Ero interessato alla storia del gioco" },
+                    { id: 4, text: "Ho pensato che fosse divertente" },
+                    { id: 5, text: "Ero completamente preso dal gioco" },
+                    { id: 6, text: "Mi sentivo felice" },
+                    { id: 7, text: "Mi ha fatto sentire male" },
+                    { id: 8, text: "Ho pensato a altre cose" },
+                    { id: 9, text: "L'ho trovato stancante" },
+                    { id: 10, text: "Mi sono sentito abile" },
+                    { id: 11, text: "Ho pensato che fosse difficile" },
+                    { id: 12, text: "Era esteticamente piacevole" },
+                    { id: 13, text: "Ho dimenticato tutto quello che mi stava intorno" },
+                    { id: 14, text: "Mi sono sentito bene" },
+                    { id: 15, text: "Ero bravo al gioco" },
+                    { id: 16, text: "Mi sono sentito annoiato" },
+                    { id: 17, text: "Mi sono sentito di successo" },
+                    { id: 18, text: "Mi sono sentito immaginativo" },
+                    { id: 19, text: "Ho sentito di poter esplorare cose" },
+                    { id: 20, text: "Ho apprezzato il gioco" },
+                    { id: 21, text: "Ero veloce a raggiungere gli obiettivi del gioco" },
+                    { id: 22, text: "Mi sono sentito infastidito" },
+                    { id: 23, text: "Ho sentito la pressione" },
+                    { id: 24, text: "Mi sono sentito irritato" },
+                    { id: 25, text: "Ho perso traccia del tempo" },
+                    { id: 26, text: "Mi sono sentito sfidato" },
+                    { id: 27, text: "L'ho trovato impressionante" },
+                    { id: 28, text: "Ero profondamente concentrato nel gioco" },
+                    { id: 29, text: "Mi sono sentito frustrato" },
+                    { id: 30, text: "Mi sembrava un'esperienza ricca" },
+                    { id: 31, text: "Ho perso il contatto con il mondo esterno" },
+                    { id: 32, text: "Ho sentito il tempo che passava" },
+                    { id: 33, text: "Ho sentito di vivere un'esperienza" }
                 ]
             },
             {
                 name: "Post-game Module",
                 description: "Esperienza dopo il gioco",
                 questions: [
-                    {id: 46, text: "Mi sento gratificato"},
-                    {id: 47, text: "Mi sento male"},
-                    {id: 48, text: "Trovo difficile tornare alla realtà"},
-                    {id: 49, text: "Mi sento colpevole"},
-                    {id: 50, text: "Mi sembra di aver fatto una conquista"},
-                    {id: 51, text: "Mi sento stanco"},
-                    {id: 52, text: "Mi sento ispirato"},
-                    {id: 53, text: "Mi sento disorientato"},
-                    {id: 54, text: "Mi sento esausto"},
-                    {id: 55, text: "Sento che il gioco era intenso"},
-                    {id: 56, text: "Mi sento soddisfatto"},
-                    {id: 57, text: "Mi sento disorientato"},
-                    {id: 58, text: "Mi sento potente"},
-                    {id: 59, text: "Mi sento stanco"},
-                    {id: 60, text: "Ho dei rimpianti"},
-                    {id: 61, text: "Mi sento in colpa"},
-                    {id: 62, text: "Mi sento orgoglioso"}
+                    { id: 46, text: "Mi sento gratificato" },
+                    { id: 47, text: "Mi sento male" },
+                    { id: 48, text: "Trovo difficile tornare alla realtà" },
+                    { id: 49, text: "Mi sento colpevole" },
+                    { id: 50, text: "Mi sembra di aver fatto una conquista" },
+                    { id: 51, text: "Mi sento stanco" },
+                    { id: 52, text: "Mi sento ispirato" },
+                    { id: 53, text: "Mi sento disorientato" },
+                    { id: 54, text: "Mi sento esausto" },
+                    { id: 55, text: "Sento che il gioco era intenso" },
+                    { id: 56, text: "Mi sento soddisfatto" },
+                    { id: 57, text: "Mi sento disorientato" },
+                    { id: 58, text: "Mi sento potente" },
+                    { id: 59, text: "Mi sento stanco" },
+                    { id: 60, text: "Ho dei rimpianti" },
+                    { id: 61, text: "Mi sento in colpa" },
+                    { id: 62, text: "Mi sento orgoglioso" }
                 ]
             }
         ],
         responseOptions: [
-            {value: 0, text: "Per niente"},
-            {value: 1, text: "Leggermente"},
-            {value: 2, text: "Moderatamente"},
-            {value: 3, text: "Abbastanza"},
-            {value: 4, text: "Estremamente"}
+            { value: 0, text: "Per niente" },
+            { value: 1, text: "Leggermente" },
+            { value: 2, text: "Moderatamente" },
+            { value: 3, text: "Abbastanza" },
+            { value: 4, text: "Estremamente" }
         ]
     };
 
@@ -609,14 +388,17 @@
                 document.getElementById('final-player-id').textContent = playerInfo.id;
             },
             function onError(error) {
-                alert('Si è verificato un errore durante l\'invio dei dati. Per favore riprova.');
-                // Mostra nuovamente il questionario
+                // Nascondi il loading
                 document.getElementById('loading').style.display = 'none';
-                document.getElementById('questionnaire').style.display = 'block';
+                document.getElementById('error-section').style.display = 'block';
+                document.getElementById('error-player-id').textContent = playerInfo.id;
+
+                console.error('Errore:', error);
             }
         );
     }
 
+    // Funzioni di download
     function downloadQuestionnaireDataAsJson() {
         // Prepara i dati completi
         const data = {
@@ -629,7 +411,6 @@
         downloadAsJson(data, `geq_end_session_${playerInfo.id}`);
     }
 
-    // Download dei dati come CSV
     function downloadQuestionnaireDataAsCsv() {
         // Prepara i dati completi
         const data = {
@@ -640,6 +421,38 @@
 
         // Usa la funzione comune per il download
         downloadAsCsv(data, `geq_end_session_${playerInfo.id}`);
+    }
+
+    // Funzione per riprovare l'invio
+    function retrySubmission() {
+        // Nascondi la sezione di errore
+        document.getElementById('error-section').style.display = 'none';
+
+        // Mostra nuovamente il loading
+        document.getElementById('loading').style.display = 'block';
+
+        // Riprova a inviare i dati
+        sendDataToGoogleSheets(
+            playerInfo,
+            responses,
+            questionnaire.modules,
+            function onSuccess(data) {
+                // Nascondi il loading e mostra il messaggio di completamento
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('thank-you').style.display = 'block';
+                document.getElementById('final-player-id').textContent = playerInfo.id;
+            },
+            function onError(error) {
+                // Nascondi il loading
+                document.getElementById('loading').style.display = 'none';
+
+                // Mostra la sezione di errore
+                document.getElementById('error-section').style.display = 'block';
+                document.getElementById('error-player-id').textContent = playerInfo.id;
+
+                console.error('Errore:', error);
+            }
+        );
     }
 
     // Inizializza il questionario quando la pagina è caricata
