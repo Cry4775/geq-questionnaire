@@ -162,6 +162,29 @@
             font-weight: bold;
             color: #333;
         }
+
+        .download-buttons {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .download-buttons button {
+            margin: 0 5px;
+            padding: 8px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-buttons button:hover {
+            background-color: #0b7dda;
+        }
     </style>
     <!-- Includi il file JavaScript comune -->
     <script src="geq-common.js"></script>
@@ -210,6 +233,12 @@
         <h2>Grazie per aver completato il questionario!</h2>
         <p>I tuoi dati sono stati salvati con successo.</p>
         <p>Il tuo ID partecipante è: <span id="final-player-id" class="player-id"></span></p>
+
+        <div class="download-buttons">
+            <p>Puoi anche salvare una copia locale dei tuoi risultati:</p>
+            <button onclick="downloadQuestionnaireDataAsJson()">Scarica come JSON</button>
+            <button onclick="downloadQuestionnaireDataAsCsv()">Scarica come CSV</button>
+        </div>
 
         <div class="navigation-links" style="margin-top: 20px;">
             <a href="index.html">Vai al Questionario End-Session</a>
@@ -399,6 +428,31 @@
                 document.getElementById('questionnaire').style.display = 'block';
             }
         );
+    }
+
+    function downloadQuestionnaireDataAsJson() {
+        // Prepara i dati completi
+        const data = {
+            playerInfo: playerInfo,
+            responses: responses,
+            module: questionnaire.module
+        };
+
+        // Usa la funzione comune per il download
+        downloadAsJson(data, `geq_in_game_${playerInfo.id}`);
+    }
+
+    // Download dei dati come CSV
+    function downloadQuestionnaireDataAsCsv() {
+        // Prepara i dati completi
+        const data = {
+            playerInfo: playerInfo,
+            responses: responses,
+            module: questionnaire.module
+        };
+
+        // Usa la funzione comune per il download
+        downloadAsCsv(data, `geq_in_game_${playerInfo.id}`);
     }
 
     // Inizializza il questionario quando la pagina è caricata

@@ -146,3 +146,79 @@ function isModuleComplete(moduleName, questions, responses) {
     const moduleResponses = responses[moduleName];
     return questions.every(q => moduleResponses.hasOwnProperty(q.id));
 }
+
+/**
+ * Scarica i dati come file JSON
+ * @param {Object} data - Dati da scaricare
+ * @param {String} filename - Nome del file
+ */
+function downloadAsJson(data, filename) {
+    const dataStr = JSON.stringify(data, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    downloadFile(blob, `${filename}.json`);
+}
+
+/**
+ * Scarica i dati come file CSV
+ * @param {Object} data - Dati da scaricare
+ * @param {String} filename - Nome del file
+ */
+function downloadAsCsv(data, filename) {
+    let csvContent = "player_id,timestamp,type,module,question_id,question_text,response\n";
+
+    const playerId = data.playerInfo.id;
+    const timestamp = data.playerInfo.timestamp;
+    const type = data.playerInfo.type;
+
+    // Se abbiamo un array di moduli (caso index.html)
+    if (Array.isArray(data.modules)) {
+        data.modules.forEach(module => {
+            const moduleResponses = data.responses[module.name];
+
+            module.questions.forEach(question => {
+                const response = moduleResponses.hasOwnProperty(question.id)
+                    ? moduleResponses[question.id]
+                    : '';
+
+                csvContent += `"${playerId}","${timestamp}","${type}","${module.name}",${question.id},"${question.text.replace(/"/g, '""')}",${response}\n`;
+            });
+        });
+    }
+    // Se abbiamo un singolo modulo (caso ingame.html)
+    else if (data.module && data.module.name) {
+        const moduleResponses = data.responses[data.module.name];
+
+        data.module.questions.forEach(question => {
+            const response = moduleResponses.hasOwnProperty(question.id)
+                ? moduleResponses[question.id]
+                : '';
+
+            csvContent += `"${playerId}","${timestamp}","${type}","${data.module.name}",${question.id},"${question.text.replace(/"/g, '""')}",${response}\n`;
+        });
+    }
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    downloadFile(blob, `${filename}.csv`);
+}
+
+/**
+ * Funzione generica per il download di file
+ * @param {Blob} blob - Blob del file
+ * @param {String} filename - Nome del file
+ */
+function downloadFile(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = filename;
+
+    // Aggiunge il link al DOM per alcuni browser che lo richiedono
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+    // Pulisce l'URL creato
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+    }, 100);
+}
