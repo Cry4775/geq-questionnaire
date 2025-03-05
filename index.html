@@ -18,6 +18,16 @@
 
     <div id="start-section" class="player-info">
         <p>Questo questionario raccoglie la tua esperienza complessiva con il gioco.</p>
+
+        <div class="project-selection">
+            <label for="project-select">Seleziona il Progetto:</label>
+            <select id="project-select" required>
+                <option value="">Scegli un progetto</option>
+                <option value="project1">Progetto 1</option>
+                <option value="project2">Progetto 2</option>
+            </select>
+        </div>
+
         <p>Il tuo identificativo univoco è:</p>
         <div id="player-id" class="player-id">Generazione ID...</div>
         <div style="margin-top: 20px;">
@@ -165,8 +175,16 @@
     let responses = {};
     let playerInfo = {};
 
-    // Inizializzazione del questionario
+    document.getElementById('project-select').addEventListener('change', function() {
+        const startButton = document.getElementById('start-button');
+        startButton.disabled = !this.value;
+    });
+
     function initQuestionnaire() {
+        // Get the selected project
+        const projectSelect = document.getElementById('project-select');
+        const selectedProject = projectSelect.value;
+
         // Genera un ID univoco per il giocatore
         const playerId = generateUniqueId();
         document.getElementById('player-id').textContent = playerId;
@@ -176,7 +194,8 @@
         playerInfo = {
             id: playerId,
             timestamp: new Date().toISOString(),
-            type: "end_session"
+            type: "end_session",
+            project: selectedProject // Add project information
         };
 
         questionnaire.modules.forEach(module => {
@@ -380,13 +399,13 @@
                 // Nascondi il loading e mostra il messaggio di completamento
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('thank-you').style.display = 'block';
-                document.getElementById('final-player-id').textContent = playerInfo.id;
+                document.getElementById('final-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
             },
             function onError(error) {
                 // Nascondi il loading
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('error-section').style.display = 'block';
-                document.getElementById('error-player-id').textContent = playerInfo.id;
+                document.getElementById('error-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
 
                 console.error('Errore:', error);
             }
@@ -395,27 +414,23 @@
 
     // Funzioni di download
     function downloadQuestionnaireDataAsJson() {
-        // Prepara i dati completi
         const data = {
             playerInfo: playerInfo,
             responses: responses,
             modules: questionnaire.modules
         };
 
-        // Usa la funzione comune per il download
-        downloadAsJson(data, `geq_end_session_${playerInfo.id}`);
+        downloadAsJson(data, `geq_end_session_${playerInfo.id}_${playerInfo.project}`);
     }
 
     function downloadQuestionnaireDataAsCsv() {
-        // Prepara i dati completi
         const data = {
             playerInfo: playerInfo,
             responses: responses,
             modules: questionnaire.modules
         };
 
-        // Usa la funzione comune per il download
-        downloadAsCsv(data, `geq_end_session_${playerInfo.id}`);
+        downloadAsCsv(data, `geq_end_session_${playerInfo.id}_${playerInfo.project}`);
     }
 
     // Funzione per riprovare l'invio
@@ -435,7 +450,7 @@
                 // Nascondi il loading e mostra il messaggio di completamento
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('thank-you').style.display = 'block';
-                document.getElementById('final-player-id').textContent = playerInfo.id;
+                document.getElementById('final-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
             },
             function onError(error) {
                 // Nascondi il loading
@@ -443,7 +458,7 @@
 
                 // Mostra la sezione di errore
                 document.getElementById('error-section').style.display = 'block';
-                document.getElementById('error-player-id').textContent = playerInfo.id;
+                document.getElementById('error-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
 
                 console.error('Errore:', error);
             }

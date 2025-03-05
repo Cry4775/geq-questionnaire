@@ -27,6 +27,9 @@ function sendDataToGoogleSheets(playerInfo, responses, modules, onSuccess, onErr
     formData.append('timestamp', playerInfo.timestamp);
     formData.append('type', playerInfo.type);
 
+    // Aggiungi il progetto
+    formData.append('project', playerInfo.project || 'unknown');
+
     // Prepara i dati delle risposte in formato JSON
     const responsesData = [];
 
