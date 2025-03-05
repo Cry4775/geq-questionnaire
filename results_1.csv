@@ -1,0 +1,65 @@
+player_id,timestamp,session_type,module_name,question_id,question_text,response
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,34,Mi interessava la storia del gioco,0
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,35,Mi sono sentito/a soddisfatto/a,1
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,36,Mi sono annoiato/a,2
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,37,L'ho trovato impressionante,2
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,38,Ho dimenticato tutto ciò che mi circondava,1
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,39,Mi sono sentito/a frustrato/a,1
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,40,L'ho trovato stancante,2
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,41,Mi sono sentito/a irritabile,4
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,42,Mi sono sentito/a abile,4
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,43,Mi sono sentito completamente assorbito/a,3
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,44,Mi sono sentito/a contento/a,2
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,45,Mi sono sentito/a sfidato/a,3
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,46,Ho dovuto metterci molto impegno,4
+1SV4NK,2025-03-05T16:10:37.142Z,in_game,In-game Module,47,Mi sono sentito/a bene,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,1,Mi sentivo interessato/a,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,2,Mi sentivo abile,1
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,3,Ero interessato/a alla storia del gioco,1
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,4,Ho pensato che fosse divertente,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,5,Ero completamente preso/a dal gioco,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,6,Mi sentivo felice,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,7,Mi ha fatto sentire male,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,8,Ho pensato a altre cose,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,9,L'ho trovato stancante,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,10,Mi sono sentito/a competente,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,11,Ho pensato che fosse difficile,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,12,Era esteticamente piacevole,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,14,Mi sono sentito/a bene,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,15,Ero bravo/a al gioco,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,19,Ho sentito di poter esplorare cose,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,20,Ho apprezzato il gioco,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,21,Ero veloce a raggiungere gli obiettivi del gioco,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,22,Mi sono sentito/a infastidito/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,23,Ho sentito la pressione,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,25,Ho perso la cognizione del tempo,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,27,L'ho trovato impressionante,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,31,Ho perso il contatto con il mondo esterno,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,32,Ho sentito di essere sotto pressione per il tempo,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Core Module,33,Ho sentito di vivere un'esperienza,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,48,Mi sono sentito/a rinvigorito/a,4
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,49,Mi sono sentito/a male,4
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,50,Ho trovato difficile tornare alla realtà,3
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,51,Mi sono sentito/a in colpa,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,52,È stato come una vittoria,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,53,L'ho trovato una perdita di tempo,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,54,Mi sono sentito/a energico/a,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,55,Mi sono sentito/a soddisfatto/a,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,0
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,59,Mi sono sentito/a potente,1
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,1
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,61,Ho provato rimorso,1
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,2
+V60JKI,2025-03-05T16:11:08.293Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,2
