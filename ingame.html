@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Experience Questionnaire - In-Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+        }
+        .option {
+            text-align: center;
+            flex: 1;
+        }
+        .option label {
+            display: block;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .option input {
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .player-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .player-id {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            border: 1px dashed #4CAF50;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: inline-block;
+        }
+        .thank-you {
+            display: none;
+            text-align: center;
+        }
+        .submit-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #start-button {
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+        .incomplete-questions {
+            color: #ff0000;
+            margin-top: 10px;
+            display: none;
+        }
+        .loading {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #4CAF50;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Experience Questionnaire</h1>
+        <h2>In-Game Module</h2>
+        
+        <div id="start-section" class="player-info">
+            <p>Questo questionario raccoglie la tua esperienza <strong>durante</strong> la sessione di gioco.</p>
+            <p>Il tuo identificativo univoco è:</p>
+            <div id="player-id" class="player-id">Generazione ID...</div>
+            <p>Ti consigliamo di annotare questo codice, sarà utile per il ricercatore.</p>
+            <div style="margin-top: 20px;">
+                <button id="start-button" onclick="startQuestionnaire()">Inizia Questionario</button>
+            </div>
+        </div>
+
+        <div id="questionnaire" style="display: none;">
+            <div class="instructions">
+                <p>Per favore indica come ti sei sentito <strong>durante</strong> l'esperienza di gioco per ciascuna delle affermazioni sotto.</p>
+                <p>Le opzioni disponibili sono: <strong>Per niente (0), Leggermente (1), Moderatamente (2), Abbastanza (3), Estremamente (4)</strong></p>
+            </div>
+            
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+            
+            <div id="questions-container"></div>
+            
+            <div class="incomplete-questions" id="incomplete-warning">
+                Ci sono domande senza risposta. Per completare il questionario, si consiglia di rispondere a tutte le domande.
+            </div>
+            
+            <div class="submit-container">
+                <button id="submit-button" onclick="completeQuestionnaire()">Completa Questionario</button>
+            </div>
+        </div>
+        
+        <div id="thank-you" class="thank-you">
+            <h2>Grazie per aver completato il questionario!</h2>
+            <p>I tuoi dati sono stati salvati con successo.</p>
+            <p>Il tuo ID partecipante è: <span id="final-player-id" class="player-id"></span></p>
+        </div>
+        
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Invio dei dati in corso...</p>
+        </div>
+    </div>
+
+    <script>
+        // Definizione del questionario
+        const questionnaire = {
+            title: "Game Experience Questionnaire",
+            module: {
+                name: "In-game Module",
+                description: "Presenza/Immersione",
+                questions: [
+                    { id: 34, text: "Ero interessato all'ambiente di gioco" },
+                    { id: 35, text: "Mi sono sentito assorbito" },
+                    { id: 36, text: "Mi sembrava che il tempo passasse in fretta" },
+                    { id: 37, text: "Mi sono sentito influenzato dal mondo di gioco" },
+                    { id: 38, text: "Mi sentivo come se fossi stato in un viaggio" },
+                    { id: 39, text: "Era un'esperienza ricca" },
+                    { id: 40, text: "Ero consapevole del mondo reale che mi circondava" },
+                    { id: 41, text: "Ho avuto un senso di ritorno alla realtà" },
+                    { id: 42, text: "Mi sono sentito staccato dal mondo esterno" },
+                    { id: 43, text: "Mi sentivo emotivamente coinvolto" },
+                    { id: 44, text: "Il contenuto del gioco mi sembrava credibile" },
+                    { id: 45, text: "Ero coinvolto con gli eventi di gioco" }
+                ]
+            },
+            responseOptions: [
+                { value: 0, text: "Per niente" },
+                { value: 1, text: "Leggermente" },
+                { value: 2, text: "Moderatamente" },
+                { value: 3, text: "Abbastanza" },
+                { value: 4, text: "Estremamente" }
+            ]
+        };
+
+        // URL dello script di Google per inviare i dati al foglio di calcolo
+        // SOSTITUISCI QUESTO URL CON QUELLO GENERATO DAL TUO SCRIPT DI GOOGLE
+        const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+        
+        // Variabili globali
+        let responses = {};
+        let playerInfo = {};
+        
+        // Genera un ID univoco
+        function generateUniqueId() {
+            // Genera un ID di 6 caratteri alfanumerici in maiuscolo
+            return Math.random().toString(36).substring(2, 8).toUpperCase();
+        }
+
+        // Inizializzazione del questionario
+        function initQuestionnaire() {
+            // Genera un ID univoco per il giocatore
+            const playerId = generateUniqueId();
+            document.getElementById('player-id').textContent = playerId;
+            
+            // Inizializza risposte e info giocatore
+            responses = {};
+            playerInfo = {
+                id: playerId,
+                timestamp: new Date().toISOString(),
+                type: "in_game"
+            };
+            
+            // Inizializza le risposte per il modulo
+            responses[questionnaire.module.name] = {};
+        }
+
+        // Crea la UI del questionario
+        function createQuestionnaireUI() {
+            const questionsContainer = document.getElementById('questions-container');
+            
+            // Pulisci il contenitore
+            questionsContainer.innerHTML = '';
+            
+            // Crea le domande
+            questionnaire.module.questions.forEach(question => {
+                // Contenitore della domanda
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                // Testo della domanda
+                const questionText = document.createElement('div');
+                questionText.className = 'question-text';
+                questionText.innerText = question.text;
+                questionDiv.appendChild(questionText);
+                
+                // Opzioni di risposta
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+                
+                // Crea ciascuna opzione
+                questionnaire.responseOptions.forEach(option => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `question-${question.id}`;
+                    radio.value = option.value;
+                    radio.id = `q${question.id}-o${option.value}`;
+                    radio.onchange = () => saveResponse(questionnaire.module.name, question.id, option.value);
+                    
+                    const label = document.createElement('label');
+                    label.htmlFor = `q${question.id}-o${option.value}`;
+                    label.innerText = option.text;
+                    
+                    optionDiv.appendChild(radio);
+                    optionDiv.appendChild(label);
+                    optionsDiv.appendChild(optionDiv);
+                });
+                
+                questionDiv.appendChild(optionsDiv);
+                questionsContainer.appendChild(questionDiv);
+            });
+            
+            updateProgressBar();
+        }
+
+        // Salva una risposta
+        function saveResponse(moduleName, questionId, value) {
+            responses[moduleName][questionId] = parseInt(value);
+            updateProgressBar();
+            checkCompletion();
+        }
+
+        // Controlla se tutte le domande hanno risposta
+        function checkCompletion() {
+            const moduleResponses = responses[questionnaire.module.name];
+            
+            // Verifica se tutte le domande hanno ricevuto risposta
+            const allAnswered = questionnaire.module.questions.every(q => 
+                moduleResponses.hasOwnProperty(q.id));
+            
+            const incompleteWarning = document.getElementById('incomplete-warning');
+            incompleteWarning.style.display = allAnswered ? 'none' : 'block';
+        }
+
+        // Aggiorna la barra di progresso
+        function updateProgressBar() {
+            let totalQuestions = questionnaire.module.questions.length;
+            let answeredQuestions = 0;
+            
+            // Conta le risposte
+            const moduleResponses = responses[questionnaire.module.name];
+            questionnaire.module.questions.forEach(question => {
+                if (moduleResponses.hasOwnProperty(question.id)) {
+                    answeredQuestions++;
+                }
+            });
+            
+            // Calcola la percentuale
+            const percentage = (answeredQuestions / totalQuestions) * 100;
+            
+            // Aggiorna la barra di progresso
+            const progressBar = document.getElementById('progress');
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        // Inizia il questionario
+        function startQuestionnaire() {
+            // Nascondi la sezione iniziale e mostra il questionario
+            document.getElementById('start-section').style.display = 'none';
+            document.getElementById('questionnaire').style.display = 'block';
+            
+            // Crea la UI del questionario
+            createQuestionnaireUI();
+        }
+
+        // Completa il questionario
+        function completeQuestionnaire() {
+            // Avvisa se ci sono domande senza risposta
+            let totalQuestions = questionnaire.module.questions.length;
+            let answeredQuestions = 0;
+            
+            // Conta le risposte
+            const moduleResponses = responses[questionnaire.module.name];
+            questionnaire.module.questions.forEach(question => {
+                if (moduleResponses.hasOwnProperty(question.id)) {
+                    answeredQuestions++;
+                }
+            });
+            
+            if (answeredQuestions < totalQuestions) {
+                if (!confirm(`Hai risposto a ${answeredQuestions} domande su ${totalQuestions}. Vuoi completare il questionario comunque?`)) {
+                    return;
+                }
+            }
+            
+            // Mostra il loading spinner
+            document.getElementById('questionnaire').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            // Invia i dati a Google Sheets
+            sendDataToGoogleSheets();
+        }
+
+        // Invia i dati a Google Sheets
+        function sendDataToGoogleSheets() {
+            // Prepara i dati in formato adatto per Google Sheets
+            let formData = new FormData();
+            
+            // Aggiungi le informazioni del giocatore
+            formData.append('id', playerInfo.id);
+            formData.append('timestamp', playerInfo.timestamp);
+            formData.append('type', playerInfo.type);
+            
+            // Prepara i dati delle risposte in formato JSON
+            const responsesData = [];
+            const moduleResponses = responses[questionnaire.module.name];
+            
+            questionnaire.module.questions.forEach(question => {
+                const response = moduleResponses.hasOwnProperty(question.id) 
+                    ? moduleResponses[question.id] 
+                    : '';
+                
+                if (response !== '') {
+                    responsesData.push({
+                        module: questionnaire.module.name,
+                        questionId: question.id,
+                        questionText: question.text,
+                        response: response
+                    });
+                }
+            });
+            
+            formData.append('responses', JSON.stringify(responsesData));
+            
+            // Invia i dati allo script di Google
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Errore nella risposta del server');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Successo:', data);
+                
+                // Nascondi il loading e mostra il messaggio di completamento
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('thank-you').style.display = 'block';
+                document.getElementById('final-player-id').textContent = playerInfo.id;
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+                alert('Si è verificato un errore durante l\'invio dei dati. Per favore riprova.');
+                
+                // Mostra nuovamente il questionario
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('questionnaire').style.display = 'block';
+            });
+        }
+
+        // Inizializza il questionario quando la pagina è caricata
+        window.onload = initQuestionnaire;
+    </script>
+</body>
+</html>
