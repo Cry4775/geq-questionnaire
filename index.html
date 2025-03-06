@@ -186,6 +186,9 @@
         const projectSelect = document.getElementById('project-select');
         const selectedProject = projectSelect.value;
 
+        // Salva il progetto selezionato
+        saveSelectedProject(selectedProject);
+
         // Genera un ID univoco per il giocatore
         const playerId = generateUniqueId();
         document.getElementById('player-id').textContent = playerId;
@@ -366,8 +369,17 @@
         }
     }
 
-    // Inizia il questionario
     function startQuestionnaire() {
+        // Ricontrolla che ci sia un progetto selezionato
+        const projectSelect = document.getElementById('project-select');
+        if (!projectSelect.value) {
+            alert("Per favore seleziona un progetto prima di iniziare.");
+            return;
+        }
+
+        // Aggiorna il progetto in playerInfo
+        playerInfo.project = projectSelect.value;
+
         // Nascondi la sezione iniziale e mostra il questionario
         document.getElementById('start-section').style.display = 'none';
         document.getElementById('questionnaire').style.display = 'block';
@@ -466,8 +478,10 @@
         );
     }
 
-    // Inizializza il questionario quando la pagina è caricata
-    window.onload = initQuestionnaire;
+    window.onload = function() {
+        initQuestionnaire();
+        initProjectSelection();
+    };
 </script>
 </body>
 </html>

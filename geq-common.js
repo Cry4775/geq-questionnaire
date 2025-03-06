@@ -226,3 +226,40 @@ function downloadFile(blob, filename) {
         URL.revokeObjectURL(url);
     }, 100);
 }
+
+// Funzione per salvare il progetto selezionato nel localStorage
+function saveSelectedProject(projectValue) {
+    localStorage.setItem('selectedProject', projectValue);
+}
+
+// Funzione per recuperare il progetto selezionato dal localStorage
+function getSelectedProject() {
+    return localStorage.getItem('selectedProject');
+}
+
+// Funzione da chiamare all'inizializzazione di ogni pagina
+function initProjectSelection() {
+    const projectSelect = document.getElementById('project-select');
+    const startButton = document.getElementById('start-button');
+
+    // Recupera il progetto precedentemente selezionato
+    const savedProject = getSelectedProject();
+
+    if (savedProject) {
+        // Imposta il valore selezionato
+        projectSelect.value = savedProject;
+
+        // Abilita il pulsante se un progetto è stato selezionato
+        startButton.disabled = false;
+    } else {
+        // Mantieni il pulsante disabilitato se non c'è progetto selezionato
+        startButton.disabled = true;
+    }
+
+    // Aggiungi event listener per salvare la selezione quando cambia
+    projectSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        saveSelectedProject(selectedValue);
+        startButton.disabled = !selectedValue;
+    });
+}
