@@ -182,12 +182,18 @@
     });
 
     function initQuestionnaire() {
-        // Get the selected project
-        const projectSelect = document.getElementById('project-select');
-        const selectedProject = projectSelect.value;
+        // Recupera il progetto salvato
+        const savedProject = getSelectedProject();
 
-        // Salva il progetto selezionato
-        saveSelectedProject(selectedProject);
+        // Imposta il progetto nel select se esiste
+        const projectSelect = document.getElementById('project-select');
+        if (savedProject) {
+            projectSelect.value = savedProject;
+        }
+
+        // Abilita/disabilita il pulsante start in base alla selezione
+        const startButton = document.getElementById('start-button');
+        startButton.disabled = !isValidProject(projectSelect.value);
 
         // Genera un ID univoco per il giocatore
         const playerId = generateUniqueId();
@@ -199,9 +205,20 @@
             id: playerId,
             timestamp: new Date().toISOString(),
             type: "end_session",
-            project: selectedProject // Add project information
+            project: savedProject // Usa il progetto salvato
         };
 
+        // Imposta event listener per il cambio di progetto
+        projectSelect.addEventListener('change', function() {
+            const selectedValue = this.value;
+            saveSelectedProject(selectedValue);
+            startButton.disabled = !isValidProject(selectedValue);
+
+            // Aggiorna immediatamente anche playerInfo
+            playerInfo.project = selectedValue;
+        });
+
+        // Inizializza le risposte per i moduli
         questionnaire.modules.forEach(module => {
             responses[module.name] = {};
         });
@@ -370,15 +387,22 @@
     }
 
     function startQuestionnaire() {
-        // Ricontrolla che ci sia un progetto selezionato
+        // Verifica ancora una volta che ci sia un progetto selezionato
         const projectSelect = document.getElementById('project-select');
-        if (!projectSelect.value) {
+        const selectedProject = projectSelect.value;
+
+        if (!isValidProject(selectedProject)) {
             alert("Per favore seleziona un progetto prima di iniziare.");
             return;
         }
 
-        // Aggiorna il progetto in playerInfo
-        playerInfo.project = projectSelect.value;
+        // Assicurati che playerInfo abbia il progetto corretto
+        playerInfo.project = selectedProject;
+
+        // Salva di nuovo il progetto per sicurezza
+        saveSelectedProject(selectedProject);
+
+        console.log("Inizio questionario con progetto:", playerInfo.project);
 
         // Nascondi la sezione iniziale e mostra il questionario
         document.getElementById('start-section').style.display = 'none';
@@ -400,6 +424,20 @@
             return;
         }
 
+        // Controlla che ci sia un progetto valido
+        if (!isValidProject(playerInfo.project)) {
+            // Se il progetto è vuoto, prova a recuperarlo dalla select
+            const projectSelect = document.getElementById('project-select');
+            if (isValidProject(projectSelect.value)) {
+                playerInfo.project = projectSelect.value;
+            } else {
+                // Se ancora vuoto, usa un valore di fallback
+                playerInfo.project = getSelectedProject() || "progetto_non_specificato";
+            }
+        }
+
+        console.log("Completamento questionario con progetto:", playerInfo.project);
+
         // Mostra il loading spinner
         document.getElementById('questionnaire').style.display = 'none';
         document.getElementById('loading').style.display = 'block';
@@ -412,13 +450,19 @@
                 // Nascondi il loading e mostra il messaggio di completamento
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('thank-you').style.display = 'block';
-                document.getElementById('final-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
+
+                // Assicurati che il progetto venga mostrato correttamente
+                const projectDisplay = playerInfo.project || getSelectedProject() || "Nessun progetto";
+                document.getElementById('final-player-id').textContent = `${playerInfo.id} (${projectDisplay})`;
             },
             function onError(error) {
                 // Nascondi il loading
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('error-section').style.display = 'block';
-                document.getElementById('error-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
+
+                // Assicurati che il progetto venga mostrato correttamente
+                const projectDisplay = playerInfo.project || getSelectedProject() || "Nessun progetto";
+                document.getElementById('error-player-id').textContent = `${playerInfo.id} (${projectDisplay})`;
 
                 console.error('Errore:', error);
             }
@@ -446,8 +490,21 @@
         downloadAsCsv(data, `geq_end_session_${playerInfo.id}_${playerInfo.project}`);
     }
 
-    // Funzione per riprovare l'invio
     function retrySubmission() {
+        // Controlla che ci sia un progetto valido
+        if (!isValidProject(playerInfo.project)) {
+            // Se il progetto è vuoto, prova a recuperarlo dalla select o dal localStorage
+            const savedProject = getSelectedProject();
+            if (isValidProject(savedProject)) {
+                playerInfo.project = savedProject;
+            } else {
+                // Se ancora vuoto, usa un valore di fallback
+                playerInfo.project = "progetto_non_specificato";
+            }
+        }
+
+        console.log("Riprova invio con progetto:", playerInfo.project);
+
         // Nascondi la sezione di errore
         document.getElementById('error-section').style.display = 'none';
 
@@ -458,12 +515,15 @@
         sendDataToGoogleSheets(
             playerInfo,
             responses,
-            questionnaire.modules,
+            questionnaire.modules,  // Usa modules per index.html
             function onSuccess(data) {
                 // Nascondi il loading e mostra il messaggio di completamento
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('thank-you').style.display = 'block';
-                document.getElementById('final-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
+
+                // Assicurati che il progetto venga mostrato correttamente
+                const projectDisplay = playerInfo.project || getSelectedProject() || "Nessun progetto";
+                document.getElementById('final-player-id').textContent = `${playerInfo.id} (${projectDisplay})`;
             },
             function onError(error) {
                 // Nascondi il loading
@@ -471,7 +531,10 @@
 
                 // Mostra la sezione di errore
                 document.getElementById('error-section').style.display = 'block';
-                document.getElementById('error-player-id').textContent = `${playerInfo.id} (${playerInfo.project})`;
+
+                // Assicurati che il progetto venga mostrato correttamente
+                const projectDisplay = playerInfo.project || getSelectedProject() || "Nessun progetto";
+                document.getElementById('error-player-id').textContent = `${playerInfo.id} (${projectDisplay})`;
 
                 console.error('Errore:', error);
             }
@@ -480,7 +543,6 @@
 
     window.onload = function() {
         initQuestionnaire();
-        initProjectSelection();
     };
 </script>
 </body>
