@@ -458,12 +458,12 @@ OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,6,Mi sentivo felice,3
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,7,Mi ha fatto sentire male,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,8,Ho pensato a altre cose,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,9,L'ho trovato stancante,0
-OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,10,Mi sono sentito/a competente,1
+OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,10,Mi sono sentito/a competente,2
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,11,Ho pensato che fosse difficile,1
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,12,Era esteticamente piacevole,3
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,1
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,14,Mi sono sentito/a bene,2
-OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,15,Ero bravo/a al gioco,2
+OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,15,Ero bravo/a al gioco,3
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,2
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,0
@@ -475,7 +475,7 @@ OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,23,Ho sentito la pressio
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,25,Ho perso la cognizione del tempo,1
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,3
-OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,27,L'ho trovato impressionante,1
+OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,27,L'ho trovato impressionante,2
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,3
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,1
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,4
@@ -493,9 +493,259 @@ OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,55,Mi sono sentito/
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,0
-OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,59,Mi sono sentito/a potente,0
+OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,59,Mi sono sentito/a potente,2
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,61,Ho provato rimorso,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,0
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,1
 OZRPFD,2025-03-25T17:46:20.356Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,1,Mi sentivo interessato/a,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,2,Mi sentivo abile,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,3,Ero interessato/a alla storia del gioco,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,4,Ho pensato che fosse divertente,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,5,Ero completamente preso/a dal gioco,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,6,Mi sentivo felice,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,7,Mi ha fatto sentire male,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,8,Ho pensato a altre cose,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,9,L'ho trovato stancante,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,10,Mi sono sentito/a competente,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,11,Ho pensato che fosse difficile,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,12,Era esteticamente piacevole,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,14,Mi sono sentito/a bene,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,15,Ero bravo/a al gioco,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,19,Ho sentito di poter esplorare cose,4
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,20,Ho apprezzato il gioco,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,21,Ero veloce a raggiungere gli obiettivi del gioco,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,22,Mi sono sentito/a infastidito/a,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,23,Ho sentito la pressione,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,25,Ho perso la cognizione del tempo,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,27,L'ho trovato impressionante,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,31,Ho perso il contatto con il mondo esterno,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,32,Ho sentito di essere sotto pressione per il tempo,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Core Module,33,Ho sentito di vivere un'esperienza,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,48,Mi sono sentito/a rinvigorito/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,49,Mi sono sentito/a male,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,50,Ho trovato difficile tornare alla realtà,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,51,Mi sono sentito/a in colpa,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,52,È stato come una vittoria,2
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,53,L'ho trovato una perdita di tempo,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,54,Mi sono sentito/a energico/a,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,55,Mi sono sentito/a soddisfatto/a,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,1
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,59,Mi sono sentito/a potente,3
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,61,Ho provato rimorso,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,0
+Z3VFGL,2025-03-26T16:06:02.856Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,1,Mi sentivo interessato/a,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,2,Mi sentivo abile,2
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,3,Ero interessato/a alla storia del gioco,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,4,Ho pensato che fosse divertente,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,5,Ero completamente preso/a dal gioco,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,6,Mi sentivo felice,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,7,Mi ha fatto sentire male,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,8,Ho pensato a altre cose,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,9,L'ho trovato stancante,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,10,Mi sono sentito/a competente,1
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,11,Ho pensato che fosse difficile,2
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,12,Era esteticamente piacevole,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,14,Mi sono sentito/a bene,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,15,Ero bravo/a al gioco,1
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,19,Ho sentito di poter esplorare cose,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,20,Ho apprezzato il gioco,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,21,Ero veloce a raggiungere gli obiettivi del gioco,1
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,22,Mi sono sentito/a infastidito/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,23,Ho sentito la pressione,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,25,Ho perso la cognizione del tempo,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,2
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,27,L'ho trovato impressionante,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,4
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,31,Ho perso il contatto con il mondo esterno,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,32,Ho sentito di essere sotto pressione per il tempo,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Core Module,33,Ho sentito di vivere un'esperienza,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,48,Mi sono sentito/a rinvigorito/a,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,49,Mi sono sentito/a male,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,50,Ho trovato difficile tornare alla realtà,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,51,Mi sono sentito/a in colpa,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,52,È stato come una vittoria,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,53,L'ho trovato una perdita di tempo,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,54,Mi sono sentito/a energico/a,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,55,Mi sono sentito/a soddisfatto/a,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,59,Mi sono sentito/a potente,2
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,61,Ho provato rimorso,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,0
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,3
+2EPIOF,2025-03-26T17:55:24.039Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,1,Mi sentivo interessato/a,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,2,Mi sentivo abile,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,3,Ero interessato/a alla storia del gioco,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,4,Ho pensato che fosse divertente,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,5,Ero completamente preso/a dal gioco,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,6,Mi sentivo felice,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,7,Mi ha fatto sentire male,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,8,Ho pensato a altre cose,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,9,L'ho trovato stancante,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,10,Mi sono sentito/a competente,2
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,11,Ho pensato che fosse difficile,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,12,Era esteticamente piacevole,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,14,Mi sono sentito/a bene,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,15,Ero bravo/a al gioco,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,19,Ho sentito di poter esplorare cose,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,20,Ho apprezzato il gioco,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,21,Ero veloce a raggiungere gli obiettivi del gioco,2
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,22,Mi sono sentito/a infastidito/a,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,23,Ho sentito la pressione,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,25,Ho perso la cognizione del tempo,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,4
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,27,L'ho trovato impressionante,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,31,Ho perso il contatto con il mondo esterno,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,32,Ho sentito di essere sotto pressione per il tempo,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Core Module,33,Ho sentito di vivere un'esperienza,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,48,Mi sono sentito/a rinvigorito/a,2
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,49,Mi sono sentito/a male,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,50,Ho trovato difficile tornare alla realtà,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,51,Mi sono sentito/a in colpa,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,52,È stato come una vittoria,2
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,53,L'ho trovato una perdita di tempo,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,54,Mi sono sentito/a energico/a,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,55,Mi sono sentito/a soddisfatto/a,3
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,59,Mi sono sentito/a potente,2
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,61,Ho provato rimorso,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,0
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,1
+JEW5G5,2025-03-28T16:40:56.844Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,1,Mi sentivo interessato/a,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,2,Mi sentivo abile,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,3,Ero interessato/a alla storia del gioco,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,4,Ho pensato che fosse divertente,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,5,Ero completamente preso/a dal gioco,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,6,Mi sentivo felice,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,7,Mi ha fatto sentire male,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,8,Ho pensato a altre cose,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,9,L'ho trovato stancante,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,10,Mi sono sentito/a competente,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,11,Ho pensato che fosse difficile,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,12,Era esteticamente piacevole,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,14,Mi sono sentito/a bene,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,15,Ero bravo/a al gioco,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,19,Ho sentito di poter esplorare cose,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,20,Ho apprezzato il gioco,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,21,Ero veloce a raggiungere gli obiettivi del gioco,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,22,Mi sono sentito/a infastidito/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,23,Ho sentito la pressione,4
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,25,Ho perso la cognizione del tempo,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,27,L'ho trovato impressionante,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,31,Ho perso il contatto con il mondo esterno,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,32,Ho sentito di essere sotto pressione per il tempo,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Core Module,33,Ho sentito di vivere un'esperienza,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,48,Mi sono sentito/a rinvigorito/a,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,49,Mi sono sentito/a male,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,50,Ho trovato difficile tornare alla realtà,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,51,Mi sono sentito/a in colpa,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,52,È stato come una vittoria,2
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,53,L'ho trovato una perdita di tempo,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,54,Mi sono sentito/a energico/a,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,55,Mi sono sentito/a soddisfatto/a,3
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,1
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,59,Mi sono sentito/a potente,4
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,61,Ho provato rimorso,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,0
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,4
+M6NSE3,2025-03-29T14:35:12.383Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,1
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,1,Mi sentivo interessato/a,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,2,Mi sentivo abile,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,3,Ero interessato/a alla storia del gioco,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,4,Ho pensato che fosse divertente,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,5,Ero completamente preso/a dal gioco,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,6,Mi sentivo felice,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,7,Mi ha fatto sentire male,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,8,Ho pensato a altre cose,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,9,L'ho trovato stancante,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,10,Mi sono sentito/a competente,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,11,Ho pensato che fosse difficile,2
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,12,Era esteticamente piacevole,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,13,Ho dimenticato tutto quello che mi stava intorno,2
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,14,Mi sono sentito/a bene,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,15,Ero bravo/a al gioco,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,16,Mi sono sentito/a annoiato/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,17,Mi sono sentito/a soddisfatto/a,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,18,Mi sono sentito/a immaginativo/a,1
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,19,Ho sentito di poter esplorare cose,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,20,Ho apprezzato il gioco,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,21,Ero veloce a raggiungere gli obiettivi del gioco,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,22,Mi sono sentito/a infastidito/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,23,Ho sentito la pressione,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,24,Mi sono sentito/a irritato/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,25,Ho perso la cognizione del tempo,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,26,Mi sono sentito/a sfidato/a,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,27,L'ho trovato impressionante,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,28,Ero profondamente concentrato/a nel gioco,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,29,Mi sono sentito/a frustrato/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,30,Mi sembrava un'esperienza ricca,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,31,Ho perso il contatto con il mondo esterno,2
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,32,Ho sentito di essere sotto pressione per il tempo,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Core Module,33,Ho sentito di vivere un'esperienza,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,48,Mi sono sentito/a rinvigorito/a,2
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,49,Mi sono sentito/a male,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,50,Ho trovato difficile tornare alla realtà,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,51,Mi sono sentito/a in colpa,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,52,È stato come una vittoria,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,53,L'ho trovato una perdita di tempo,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,54,Mi sono sentito/a energico/a,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,55,Mi sono sentito/a soddisfatto/a,3
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,56,Mi sono sentito/a disorientato/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,57,Mi sono sentito/a esausto/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,58,Ho sentito che avrei potuto fare cose più utili,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,59,Mi sono sentito/a potente,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,60,Mi sono sentito/a stanco/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,61,Ho provato rimorso,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,62,Mi sono sentito/a imbarazzato/a,0
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,63,Mi sono sentito/a orgoglioso/a,4
+511UJ4,2025-03-29T15:25:32.942Z,end_session,Post-game Module,64,Ho avuto la sensazione di essere tornato/a da un viaggio,2
